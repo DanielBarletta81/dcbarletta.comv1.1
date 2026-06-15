@@ -16,13 +16,63 @@ const text = Source_Sans_3({
 });
 
 export const metadata = {
-  title: 'Daniel C. Barletta',
-  description: 'Author of World of Tethys. Speculative fiction grounded in ecology, systems, and survival.'
+  title: {
+    default: 'Daniel C. Barletta — Author',
+    template: '%s | Daniel C. Barletta'
+  },
+  description:
+    'Daniel C. Barletta is a speculative fiction author. Creator of World of Tethys — a science fiction series grounded in ecology, ancient ocean systems, and the science of survival.',
+  keywords: [
+    'Daniel Barletta',
+    'speculative fiction author',
+    'World of Tethys',
+    'Sky City',
+    'science fiction ecology',
+    'ecological fiction',
+    'ocean world building',
+    'ancient Tethys Sea',
+    'science fiction author'
+  ],
+  authors: [{ name: 'Daniel C. Barletta', url: 'https://dcbarletta.com' }],
+  creator: 'Daniel C. Barletta',
+  metadataBase: new URL('https://dcbarletta.com'),
+  alternates: { canonical: '/' },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://dcbarletta.com',
+    siteName: 'Daniel C. Barletta',
+    title: 'Daniel C. Barletta — Author of World of Tethys',
+    description:
+      'Speculative fiction grounded in ecology, ancient ocean systems, and the science of survival. Author of the World of Tethys series.'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Daniel C. Barletta — Author of World of Tethys',
+    description:
+      'Speculative fiction grounded in ecology, ancient ocean systems, and the science of survival.'
+  }
+};
+
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f6f2ea' },
+    { media: '(prefers-color-scheme: dark)', color: '#06080e' }
+  ]
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${text.variable}`}>
+      <head>
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();`
+          }}
+        />
+      </head>
       <body style={{ fontFamily: 'var(--font-text), sans-serif' }}>
         {children}
       </body>

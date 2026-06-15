@@ -1,4 +1,17 @@
 import Link from 'next/link';
+import ThemeToggle from '../../components/ThemeToggle';
+
+export const metadata = {
+  title: 'Portfolio',
+  description:
+    'Portfolio of Daniel C. Barletta \u2014 data visualization, systems design, and narrative transformation. Interactive models of world systems built alongside the World of Tethys series.',
+  alternates: { canonical: '/portfolio' },
+  openGraph: {
+    title: 'Portfolio \u2014 Daniel C. Barletta',
+    description: 'Data visualization, systems design, and narrative transformation tools.',
+    url: 'https://dcbarletta.com/portfolio'
+  }
+};
 
 const chartData = [12, 18, 9, 22, 26, 17, 14, 28, 24, 19];
 const maxValue = Math.max(...chartData);
@@ -22,43 +35,49 @@ export default function PortfolioPage() {
   return (
     <main style={{ padding: '72px 24px' }}>
       <div style={{ maxWidth: '980px', margin: '0 auto' }}>
+
         <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '64px' }}>
           <Link
             href="/"
-            style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase' }}
+            style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text)' }}
           >
             Daniel C. Barletta
           </Link>
-          <nav style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
+          <nav aria-label="Site navigation" style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', alignItems: 'center' }}>
             <Link href="/">Home</Link>
             <Link href="/books">Books</Link>
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/contact">Contact</Link>
+            <ThemeToggle />
           </nav>
         </header>
 
-        <section style={{ marginBottom: '56px' }}>
-          <p style={{ fontSize: '12px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#7c6f62' }}>
+        <section aria-labelledby="portfolio-heading" style={{ marginBottom: '56px' }}>
+          <p style={{ fontSize: '12px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-subtle)' }}>
             Portfolio
           </p>
-          <h1 style={{ fontFamily: 'var(--font-display), serif', fontSize: '44px', margin: '16px 0 12px' }}>
+          <h1
+            id="portfolio-heading"
+            style={{ fontFamily: 'var(--font-display), serif', fontSize: '44px', margin: '16px 0 12px', color: 'var(--text)' }}
+          >
             Data visualization + transformation
           </h1>
-          <p style={{ fontSize: '18px', color: '#433a32', maxWidth: '700px' }}>
+          <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '700px' }}>
             I model narrative systems as data. These samples show how inputs become readable
             signals, and how a world can express transformation over time.
           </p>
         </section>
 
-        <section style={{ display: 'grid', gap: '32px', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginBottom: '64px' }}>
-          <div style={{ padding: '24px', borderRadius: '18px', border: '1px solid #d9cbb8', background: '#fbf8f2' }}>
-            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#7c6f62' }}>
+        <section aria-label="Visualization samples" style={{ display: 'grid', gap: '32px', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginBottom: '64px' }}>
+
+          <article style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
+            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: 0 }}>
               Signal density
-            </p>
+            </h2>
             <svg viewBox="0 0 320 120" role="img" aria-label="Signal density timeline" style={{ width: '100%', marginTop: '16px' }}>
               <polyline
                 fill="none"
-                stroke="#1e1b16"
+                style={{ stroke: 'var(--text)' }}
                 strokeWidth="2"
                 points={chartData
                   .map((value, index) => {
@@ -71,26 +90,26 @@ export default function PortfolioPage() {
               {chartData.map((value, index) => {
                 const x = 20 + index * 28;
                 const y = 100 - (value / maxValue) * 70;
-                return <circle key={value + index} cx={x} cy={y} r="3" fill="#b65b2a" />;
+                return <circle key={value + index} cx={x} cy={y} r="3" style={{ fill: 'var(--accent)' }} />;
               })}
-              <line x1="20" y1="100" x2="300" y2="100" stroke="#cbbbaa" strokeWidth="1" />
+              <line x1="20" y1="100" x2="300" y2="100" style={{ stroke: 'var(--border)' }} strokeWidth="1" />
             </svg>
-            <p style={{ fontSize: '13px', color: '#5a5046' }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
               Field signals accumulate in bursts, with periodic decay cycles.
             </p>
-          </div>
+          </article>
 
-          <div style={{ padding: '24px', borderRadius: '18px', border: '1px solid #d9cbb8', background: '#fbf8f2' }}>
-            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#7c6f62' }}>
+          <article style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
+            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: 0 }}>
               System topology
-            </p>
+            </h2>
             <svg viewBox="0 0 320 160" role="img" aria-label="System topology" style={{ width: '100%', marginTop: '16px' }}>
-              <rect x="10" y="10" width="300" height="140" rx="16" fill="#f6efe4" stroke="#d9cbb8" />
+              <rect x="10" y="10" width="300" height="140" rx="16" style={{ fill: 'var(--bg-card)', stroke: 'var(--border)' }} />
               {systems.map((node, idx) => (
                 <g key={node.id}>
-                  <circle cx={node.x * 3} cy={node.y * 2} r={8 + node.value * 10} fill="#1e1b16" opacity="0.12" />
-                  <circle cx={node.x * 3} cy={node.y * 2} r="6" fill="#1e1b16" />
-                  <text x={node.x * 3 + 10} y={node.y * 2 + 4} fontSize="10" fill="#1e1b16">
+                  <circle cx={node.x * 3} cy={node.y * 2} r={8 + node.value * 10} style={{ fill: 'var(--text)', opacity: 0.1 }} />
+                  <circle cx={node.x * 3} cy={node.y * 2} r="6" style={{ fill: 'var(--text)' }} />
+                  <text x={node.x * 3 + 10} y={node.y * 2 + 4} fontSize="10" style={{ fill: 'var(--text)' }}>
                     {node.id}
                   </text>
                   {idx < systems.length - 1 && (
@@ -99,65 +118,67 @@ export default function PortfolioPage() {
                       y1={node.y * 2}
                       x2={systems[idx + 1].x * 3}
                       y2={systems[idx + 1].y * 2}
-                      stroke="#bcae9b"
+                      style={{ stroke: 'var(--border)' }}
                       strokeWidth="1.2"
                     />
                   )}
                 </g>
               ))}
             </svg>
-            <p style={{ fontSize: '13px', color: '#5a5046' }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
               Systems interact with different intensities rather than fixed hierarchies.
             </p>
-          </div>
+          </article>
 
-          <div style={{ padding: '24px', borderRadius: '18px', border: '1px solid #d9cbb8', background: '#fbf8f2' }}>
-            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#7c6f62' }}>
+          <article style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
+            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: 0 }}>
               Transformation pipeline
-            </p>
+            </h2>
             <div style={{ marginTop: '16px', display: 'grid', gap: '12px' }}>
-              {transformations.map((item, index) => (
+              {transformations.map((item) => (
                 <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ minWidth: '80px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#7c6f62' }}>
+                  <div style={{ minWidth: '80px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)' }}>
                     {item.label}
                   </div>
-                  <div style={{ flex: 1, background: '#e8dfd1', height: '10px', borderRadius: '999px' }}>
+                  <div style={{ flex: 1, background: 'var(--border)', height: '10px', borderRadius: '999px' }}>
                     <div
                       style={{
                         width: `${(item.value / transformations[0].value) * 100}%`,
                         height: '100%',
                         borderRadius: '999px',
-                        background: '#1e1b16'
+                        background: 'var(--accent)'
                       }}
                     />
                   </div>
-                  <div style={{ fontSize: '12px', color: '#5a5046' }}>{item.value}</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{item.value}</div>
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: '13px', color: '#5a5046', marginTop: '12px' }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '12px' }}>
               Raw inputs compress into stable behaviors that can be expressed in narrative.
             </p>
-          </div>
+          </article>
+
         </section>
 
-        <section style={{ padding: '24px', borderRadius: '18px', border: '1px solid #d9cbb8', background: '#fbf8f2' }}>
-          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#7c6f62' }}>
+        <section style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
+          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)' }}>
             Skills in context
           </p>
           <div style={{ display: 'grid', gap: '16px', marginTop: '12px' }}>
-            <p style={{ fontSize: '15px', color: '#3f3730' }}>
+            <p style={{ fontSize: '15px', color: 'var(--text-muted)' }}>
               System design, data pipelines, interactive visualization, and narrative integration.
               I translate research into tooling and world logic that stays legible.
             </p>
           </div>
         </section>
 
-        <footer style={{ marginTop: '72px', borderTop: '1px solid #e2d7c6', paddingTop: '24px' }}>
-          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.25em', color: '#7c6f62' }}>
-            © Daniel C. Barletta
+        <footer style={{ marginTop: '72px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
+          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.25em', color: 'var(--text-subtle)' }}>
+            \u00a9 Daniel C. Barletta
           </p>
         </footer>
+
       </div>
     </main>
   );

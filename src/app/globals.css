@@ -1,15 +1,43 @@
+/* ── Light — Ancient Voyager ─────────────────────────────── */
 :root {
+  --bg:            #f6f2ea;
+  --bg-card:       #fbf8f2;
+  --text:          #1e1b16;
+  --text-muted:    #433a32;
+  --text-subtle:   #7c6f62;
+  --border:        #d9cbb8;
+  --border-subtle: #e2d7c6;
+  --accent:        #b65b2a;
+  --accent-dim:    #bcae9b;
   color-scheme: light;
 }
 
-* {
+/* ── Dark — Tethys / Watcher Volcano ────────────────────── */
+html.dark {
+  --bg:            #06080e;
+  --bg-card:       #0a1019;
+  --text:          #c4d8e4;
+  --text-muted:    #7eacc2;
+  --text-subtle:   #4e7a92;
+  --border:        #162230;
+  --border-subtle: #1c2d3d;
+  --accent:        #c4581c;
+  --accent-dim:    #1e3e58;
+  color-scheme: dark;
+}
+
+/* ── Reset ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: #f6f2ea;
-  color: #1e1b16;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 a {
