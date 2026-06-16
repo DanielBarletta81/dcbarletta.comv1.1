@@ -4,14 +4,14 @@ import ThemeToggle from '../../components/ThemeToggle';
 export const metadata = {
   title: 'World of Tethys: Sky City',
   description:
-    'Sky City \u2014 Book One of the World of Tethys series by Daniel C. Barletta. Speculative fiction rooted in ecology, engineered cities, and ancient ocean systems. Released February 28, 2026.',
+    'Sky City \u2014 Book One of the World of Tethys series by D.C. Barletta. Speculative fiction rooted in ecology, engineered cities, and ancient ocean systems. Released February 28, 2026.',
   keywords: [
     'World of Tethys', 'Sky City', 'Daniel Barletta',
     'speculative fiction', 'science fiction ecology', 'ecological fiction'
   ],
   alternates: { canonical: '/books' },
   openGraph: {
-    title: 'World of Tethys: Sky City \u2014 Daniel C. Barletta',
+    title: 'World of Tethys: Sky City \u2014 D.C. Barletta',
     description:
       'A city engineered to control water, light, and people. Beyond it, a living world still remembers how to breathe. Book One of the World of Tethys series.',
     url: 'https://dcbarletta.com/books',
@@ -24,7 +24,7 @@ const bookSchema = {
   '@type': 'Book',
   name: 'Sky City',
   alternativeHeadline: 'World of Tethys, Book One',
-  author: { '@type': 'Person', name: 'Daniel C. Barletta', url: 'https://dcbarletta.com' },
+  author: { '@type': 'Person', name: 'D.C. Barletta', url: 'https://dcbarletta.com' },
   bookSeries: { '@type': 'BookSeries', name: 'World of Tethys' },
   genre: ['Science Fiction', 'Speculative Fiction', 'Ecological Fiction'],
   description:
@@ -47,7 +47,7 @@ export default function BooksPage() {
             href="/"
             style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text)' }}
           >
-            Daniel C. Barletta
+            D.C. Barletta
           </Link>
           <nav aria-label="Site navigation" style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', alignItems: 'center' }}>
             <Link href="/">Home</Link>
@@ -108,7 +108,7 @@ export default function BooksPage() {
             Updates posted here
           </p>
           <p style={{ fontSize: '12px', color: 'var(--text-subtle)', marginTop: '10px' }}>
-            \u00a9 Daniel C. Barletta
+            \u00a9 D.C. Barletta
           </p>
         </footer>
 

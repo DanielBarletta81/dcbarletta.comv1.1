@@ -4,10 +4,10 @@ import ThemeToggle from '../../components/ThemeToggle';
 export const metadata = {
   title: 'Portfolio',
   description:
-    'Portfolio of Daniel C. Barletta \u2014 data visualization, systems design, and narrative transformation. Interactive models of world systems built alongside the World of Tethys series.',
+    'Portfolio of D.C. Barletta \u2014 data visualization, systems design, and narrative transformation. Interactive models of world systems built alongside the World of Tethys series.',
   alternates: { canonical: '/portfolio' },
   openGraph: {
-    title: 'Portfolio \u2014 Daniel C. Barletta',
+    title: 'Portfolio \u2014 D.C. Barletta',
     description: 'Data visualization, systems design, and narrative transformation tools.',
     url: 'https://dcbarletta.com/portfolio'
   }
@@ -41,7 +41,7 @@ export default function PortfolioPage() {
             href="/"
             style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text)' }}
           >
-            Daniel C. Barletta
+            D.C. Barletta
           </Link>
           <nav aria-label="Site navigation" style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', alignItems: 'center' }}>
             <Link href="/">Home</Link>
@@ -175,7 +175,7 @@ export default function PortfolioPage() {
 
         <footer style={{ marginTop: '72px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
           <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.25em', color: 'var(--text-subtle)' }}>
-            \u00a9 Daniel C. Barletta
+            \u00a9 D.C. Barletta
           </p>
         </footer>
 

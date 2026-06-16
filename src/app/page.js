@@ -7,7 +7,7 @@ const schema = {
     {
       '@type': 'Person',
       '@id': 'https://dcbarletta.com/#author',
-      name: 'Daniel C. Barletta',
+      name: 'D.C. Barletta',
       url: 'https://dcbarletta.com',
       jobTitle: 'Author',
       description:
@@ -18,9 +18,9 @@ const schema = {
       '@type': 'WebSite',
       '@id': 'https://dcbarletta.com/#website',
       url: 'https://dcbarletta.com',
-      name: 'Daniel C. Barletta',
+      name: 'D.C. Barletta',
       description:
-        'Official author site for Daniel C. Barletta — speculative fiction, ecology, and ancient world-building.',
+        'Official author site for D.C. Barletta — speculative fiction, ecology, and ancient world-building.',
       author: { '@id': 'https://dcbarletta.com/#author' }
     }
   ]
@@ -45,7 +45,7 @@ export default function Home() {
 
         <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '80px' }}>
           <div style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase' }}>
-            Daniel C. Barletta
+            D.C. Barletta
           </div>
           <nav aria-label="Site navigation" style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', alignItems: 'center' }}>
             <Link href="/books">Books</Link>
@@ -139,7 +139,7 @@ export default function Home() {
             Books · Writing · Contact
           </p>
           <p style={{ fontSize: '12px', color: 'var(--text-subtle)', marginTop: '12px' }}>
-            © Daniel C. Barletta
+            © D.C. Barletta
           </p>
         </footer>
 

@@ -17,11 +17,11 @@ const text = Source_Sans_3({
 
 export const metadata = {
   title: {
-    default: 'Daniel C. Barletta — Author',
-    template: '%s | Daniel C. Barletta'
+    default: 'D.C. Barletta — Author',
+    template: '%s | D.C. Barletta'
   },
   description:
-    'Daniel C. Barletta is a speculative fiction author. Creator of World of Tethys — a science fiction series grounded in ecology, ancient ocean systems, and the science of survival.',
+    'D.C. Barletta is a speculative fiction author. Creator of World of Tethys — a science fiction series grounded in ecology, ancient ocean systems, and the science of survival.',
   keywords: [
     'Daniel Barletta',
     'speculative fiction author',
@@ -33,8 +33,8 @@ export const metadata = {
     'ancient Tethys Sea',
     'science fiction author'
   ],
-  authors: [{ name: 'Daniel C. Barletta', url: 'https://dcbarletta.com' }],
-  creator: 'Daniel C. Barletta',
+  authors: [{ name: 'D.C. Barletta', url: 'https://dcbarletta.com' }],
+  creator: 'D.C. Barletta',
   metadataBase: new URL('https://dcbarletta.com'),
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
@@ -42,14 +42,14 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://dcbarletta.com',
-    siteName: 'Daniel C. Barletta',
-    title: 'Daniel C. Barletta — Author of World of Tethys',
+    siteName: 'D.C. Barletta',
+    title: 'D.C. Barletta — Author of World of Tethys',
     description:
       'Speculative fiction grounded in ecology, ancient ocean systems, and the science of survival. Author of the World of Tethys series.'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Daniel C. Barletta — Author of World of Tethys',
+    title: 'D.C. Barletta — Author of World of Tethys',
     description:
       'Speculative fiction grounded in ecology, ancient ocean systems, and the science of survival.'
   }

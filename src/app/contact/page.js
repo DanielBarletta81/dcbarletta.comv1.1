@@ -4,11 +4,11 @@ import ThemeToggle from '../../components/ThemeToggle';
 export const metadata = {
   title: 'Contact',
   description:
-    'Contact Daniel C. Barletta \u2014 author of World of Tethys. For publishing, collaboration, and press inquiries.',
+    'Contact D.C. Barletta \u2014 author of World of Tethys. For publishing, collaboration, and press inquiries.',
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Contact Daniel C. Barletta',
-    description: 'Publishing, collaboration, and press inquiries for speculative fiction author Daniel C. Barletta.',
+    title: 'Contact D.C. Barletta',
+    description: 'Publishing, collaboration, and press inquiries for speculative fiction author D.C. Barletta.',
     url: 'https://dcbarletta.com/contact'
   }
 };
@@ -16,12 +16,12 @@ export const metadata = {
 const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contact Daniel C. Barletta',
+  name: 'Contact D.C. Barletta',
   url: 'https://dcbarletta.com/contact',
-  description: 'Contact page for author Daniel C. Barletta. Publishing, press, and collaboration inquiries.',
+  description: 'Contact page for author D.C. Barletta. Publishing, press, and collaboration inquiries.',
   author: {
     '@type': 'Person',
-    name: 'Daniel C. Barletta',
+    name: 'D.C. Barletta',
     email: 'hello@dcbarletta.com',
     url: 'https://dcbarletta.com'
   }
@@ -41,7 +41,7 @@ export default function ContactPage() {
             href="/"
             style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text)' }}
           >
-            Daniel C. Barletta
+            D.C. Barletta
           </Link>
           <nav aria-label="Site navigation" style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', alignItems: 'center' }}>
             <Link href="/">Home</Link>
@@ -93,7 +93,7 @@ export default function ContactPage() {
 
         <footer style={{ marginTop: '72px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
           <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.25em', color: 'var(--text-subtle)' }}>
-            \u00a9 Daniel C. Barletta
+            \u00a9 D.C. Barletta
           </p>
         </footer>
 
