@@ -10,11 +10,31 @@ export default function ThemeToggle() {
   }, []);
 
   const toggle = () => {
-    const html = document.documentElement;
-    const next = !html.classList.contains('dark');
-    html.classList.toggle('dark', next);
-    localStorage.setItem('theme', next ? 'dark' : 'light');
-    setDark(next);
+    // Cinematic dip-to-black dimmer — overlay fades in, theme swaps at peak, then resurfaces
+    const dim = document.createElement('div');
+    Object.assign(dim.style, {
+      position: 'fixed', inset: '0', zIndex: '99999',
+      background: 'rgba(12, 8, 4, 0.72)',
+      opacity: '0', pointerEvents: 'none',
+      transition: 'opacity 0.15s ease',
+    });
+    document.body.appendChild(dim);
+    // Double rAF ensures CSS transition fires after initial render
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => { dim.style.opacity = '1'; })
+    );
+    setTimeout(() => {
+      const html = document.documentElement;
+      const next = !html.classList.contains('dark');
+      html.classList.toggle('dark', next);
+      localStorage.setItem('theme', next ? 'dark' : 'light');
+      setDark(next);
+      requestAnimationFrame(() => {
+        dim.style.transition = 'opacity 0.22s ease';
+        dim.style.opacity = '0';
+        setTimeout(() => dim.remove(), 280);
+      });
+    }, 170);
   };
 
   return (
@@ -37,7 +57,7 @@ export default function ThemeToggle() {
         transition: 'border-color 0.2s, color 0.2s',
       }}
     >
-      {dark ? '◎ Shore' : '◉ Abyss'}
+      {dark ? '\u25ce Shore' : '\u25c9 Abyss'}
     </button>
   );
 }

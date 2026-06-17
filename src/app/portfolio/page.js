@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import ThemeToggle from '../../components/ThemeToggle';
+import InteractiveCard from '../../components/InteractiveCard';
 
 export const metadata = {
   title: 'Portfolio',
@@ -33,24 +32,8 @@ const transformations = [
 
 export default function PortfolioPage() {
   return (
-    <main style={{ padding: '72px 24px' }}>
+    <main style={{ padding: '48px 24px 0' }}>
       <div style={{ maxWidth: '980px', margin: '0 auto' }}>
-
-        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '64px' }}>
-          <Link
-            href="/"
-            style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text)' }}
-          >
-            D.C. Barletta
-          </Link>
-          <nav aria-label="Site navigation" style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', alignItems: 'center' }}>
-            <Link href="/">Home</Link>
-            <Link href="/books">Books</Link>
-            <Link href="/portfolio">Portfolio</Link>
-            <Link href="/contact">Contact</Link>
-            <ThemeToggle />
-          </nav>
-        </header>
 
         <section aria-labelledby="portfolio-heading" style={{ marginBottom: '56px' }}>
           <p style={{ fontSize: '12px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-subtle)' }}>
@@ -70,11 +53,11 @@ export default function PortfolioPage() {
 
         <section aria-label="Visualization samples" style={{ display: 'grid', gap: '32px', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginBottom: '64px' }}>
 
-          <article style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
-            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: 0 }}>
+          <InteractiveCard label="Signal density visualization">
+            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: '0 0 16px' }}>
               Signal density
             </h2>
-            <svg viewBox="0 0 320 120" role="img" aria-label="Signal density timeline" style={{ width: '100%', marginTop: '16px' }}>
+            <svg viewBox="0 0 320 120" role="img" aria-label="Signal density timeline" style={{ width: '100%' }}>
               <polyline
                 fill="none"
                 style={{ stroke: 'var(--text)' }}
@@ -94,17 +77,17 @@ export default function PortfolioPage() {
               })}
               <line x1="20" y1="100" x2="300" y2="100" style={{ stroke: 'var(--border)' }} strokeWidth="1" />
             </svg>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '12px', marginBottom: 0 }}>
               Field signals accumulate in bursts, with periodic decay cycles.
             </p>
-          </article>
+          </InteractiveCard>
 
-          <article style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
-            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: 0 }}>
+          <InteractiveCard label="System topology">
+            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: '0 0 16px' }}>
               System topology
             </h2>
-            <svg viewBox="0 0 320 160" role="img" aria-label="System topology" style={{ width: '100%', marginTop: '16px' }}>
-              <rect x="10" y="10" width="300" height="140" rx="16" style={{ fill: 'var(--bg-card)', stroke: 'var(--border)' }} />
+            <svg viewBox="0 0 320 160" role="img" aria-label="System topology" style={{ width: '100%' }}>
+              <rect x="10" y="10" width="300" height="140" rx="16" style={{ fill: 'none', stroke: 'var(--border)' }} />
               {systems.map((node, idx) => (
                 <g key={node.id}>
                   <circle cx={node.x * 3} cy={node.y * 2} r={8 + node.value * 10} style={{ fill: 'var(--text)', opacity: 0.1 }} />
@@ -114,27 +97,24 @@ export default function PortfolioPage() {
                   </text>
                   {idx < systems.length - 1 && (
                     <line
-                      x1={node.x * 3}
-                      y1={node.y * 2}
-                      x2={systems[idx + 1].x * 3}
-                      y2={systems[idx + 1].y * 2}
-                      style={{ stroke: 'var(--border)' }}
-                      strokeWidth="1.2"
+                      x1={node.x * 3} y1={node.y * 2}
+                      x2={systems[idx + 1].x * 3} y2={systems[idx + 1].y * 2}
+                      style={{ stroke: 'var(--border)' }} strokeWidth="1.2"
                     />
                   )}
                 </g>
               ))}
             </svg>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '12px', marginBottom: 0 }}>
               Systems interact with different intensities rather than fixed hierarchies.
             </p>
-          </article>
+          </InteractiveCard>
 
-          <article style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
-            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: 0 }}>
+          <InteractiveCard label="Transformation pipeline">
+            <h2 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: '0 0 16px' }}>
               Transformation pipeline
             </h2>
-            <div style={{ marginTop: '16px', display: 'grid', gap: '12px' }}>
+            <div style={{ display: 'grid', gap: '12px' }}>
               {transformations.map((item) => (
                 <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div style={{ minWidth: '80px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)' }}>
@@ -154,30 +134,24 @@ export default function PortfolioPage() {
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '12px' }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '12px', marginBottom: 0 }}>
               Raw inputs compress into stable behaviors that can be expressed in narrative.
             </p>
-          </article>
+          </InteractiveCard>
 
         </section>
 
-        <section style={{ padding: '24px', borderRadius: '18px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
-          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)' }}>
-            Skills in context
-          </p>
-          <div style={{ display: 'grid', gap: '16px', marginTop: '12px' }}>
-            <p style={{ fontSize: '15px', color: 'var(--text-muted)' }}>
+        <section style={{ marginBottom: '80px' }}>
+          <InteractiveCard label="Skills in context">
+            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: '0 0 12px' }}>
+              Skills in context
+            </p>
+            <p style={{ fontSize: '15px', color: 'var(--text-muted)', margin: 0 }}>
               System design, data pipelines, interactive visualization, and narrative integration.
               I translate research into tooling and world logic that stays legible.
             </p>
-          </div>
+          </InteractiveCard>
         </section>
-
-        <footer style={{ marginTop: '72px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
-          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.25em', color: 'var(--text-subtle)' }}>
-            \u00a9 D.C. Barletta
-          </p>
-        </footer>
 
       </div>
     </main>

@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import ThemeToggle from '../../components/ThemeToggle';
+import InteractiveCard from '../../components/InteractiveCard';
 
 export const metadata = {
   title: 'Contact',
@@ -29,27 +28,12 @@ const contactSchema = {
 
 export default function ContactPage() {
   return (
-    <main style={{ padding: '72px 24px' }}>
+    <main style={{ padding: '48px 24px 0' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-
-        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '64px' }}>
-          <Link
-            href="/"
-            style={{ fontFamily: 'var(--font-display), serif', fontSize: '18px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--text)' }}
-          >
-            D.C. Barletta
-          </Link>
-          <nav aria-label="Site navigation" style={{ display: 'flex', gap: '24px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', alignItems: 'center' }}>
-            <Link href="/">Home</Link>
-            <Link href="/books">Books</Link>
-            <Link href="/contact">Contact</Link>
-            <ThemeToggle />
-          </nav>
-        </header>
 
         <section aria-labelledby="contact-heading" style={{ marginBottom: '64px' }}>
           <p style={{ fontSize: '12px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-subtle)' }}>
@@ -67,35 +51,30 @@ export default function ContactPage() {
         </section>
 
         <section aria-label="Contact details" style={{ display: 'grid', gap: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
-          <div style={{ padding: '20px', borderRadius: '16px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
-            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)' }}>
+          <InteractiveCard label="Email contact">
+            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: '0 0 10px' }}>
               Email
             </p>
-            <address style={{ fontStyle: 'normal', fontSize: '16px', margin: '10px 0', fontWeight: 600, color: 'var(--text)' }}>
+            <address style={{ fontStyle: 'normal', fontSize: '16px', margin: '0 0 8px', fontWeight: 600, color: 'var(--text)' }}>
               <a href="mailto:hello@dcbarletta.com" style={{ color: 'var(--text)' }}>hello@dcbarletta.com</a>
             </address>
-            <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0 }}>
               I respond within a few days when possible.
             </p>
-          </div>
-          <div style={{ padding: '20px', borderRadius: '16px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
-            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)' }}>
+          </InteractiveCard>
+
+          <InteractiveCard label="Press Kit">
+            <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-subtle)', margin: '0 0 10px' }}>
               Press Kit
             </p>
-            <p style={{ fontSize: '16px', margin: '10px 0', fontWeight: 600, color: 'var(--text)' }}>
+            <p style={{ fontSize: '16px', margin: '0 0 8px', fontWeight: 600, color: 'var(--text)' }}>
               Available on request
             </p>
-            <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', margin: 0 }}>
               Bio, headshots, and series one-sheet.
             </p>
-          </div>
+          </InteractiveCard>
         </section>
-
-        <footer style={{ marginTop: '72px', borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
-          <p style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.25em', color: 'var(--text-subtle)' }}>
-            \u00a9 D.C. Barletta
-          </p>
-        </footer>
 
       </div>
     </main>

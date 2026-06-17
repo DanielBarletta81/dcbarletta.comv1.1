@@ -1,5 +1,8 @@
 import { Playfair_Display, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
+import SiteHeader from '../components/SiteHeader';
+import SiteFooter from '../components/SiteFooter';
+import RippleCanvas from '../components/RippleCanvas';
 
 const display = Playfair_Display({
   subsets: ['latin'],
@@ -74,7 +77,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body style={{ fontFamily: 'var(--font-text), sans-serif' }}>
-        {children}
+        <RippleCanvas />
+        <SiteHeader />
+        <div className="page-content">
+          {children}
+        </div>
+        <SiteFooter />
       </body>
     </html>
   );
