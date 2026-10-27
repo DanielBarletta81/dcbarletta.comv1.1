@@ -61,10 +61,10 @@ export const copy = {
     followLabel: 'Stay close to the story', followTitle: 'The next chapter\nis taking shape.', followBody: 'Follow World of Tethys for films, book news, and the road to Fault Lines.',
     playLabel: '00 / Enter the world',
     playTitle: 'Choose your Tethys path.',
-    playIntro: 'Two Roblox experiences. One shared universe. Start where your player is now, then grow with the world.',
+    playIntro: 'Two Roblox experiences. One shared universe. Adventures opens as the soft all-ages entry; Wildbound is the gated teen path with heavier survival loops.',
     experiences: [
       ['Adventures', 'All ages · cute exploration', 'First public release focus: The Lost Crossing. A family-friendly entry point with lighter mechanics, bright discovery beats, and playful onboarding through core regions.', 'Launch Adventures', 'roblox-experiences/The Lost Crossing_ Tethys Adventures-1.png', 'Now live: The Lost Crossing'],
-      ['Wildbound', 'Ages 13+ · deeper survival systems', 'For older kids and adults: harder ecology loops, stronger predator pressure, and layered progression rooted in environmental adaptation.', 'Launch Wildbound', 'roblox-experiences/Wildbound_Camp_Thumb.png', 'Coming next'],
+      ['Wildbound', 'Ages 13+ gated path · deeper survival systems', 'For older kids and adults: harder ecology loops, stronger predator pressure, and layered progression rooted in environmental adaptation. This route remains clearly marked as the teen experience.', 'Enter Wildbound 13+', 'roblox-experiences/Wildbound_Camp_Thumb.png', 'Gated 13+ track'],
     ],
     bridgeHeading: 'Built with full-stack support',
     bridgeItems: [
@@ -156,10 +156,10 @@ export const copy = {
     followLabel: 'Ikuti perkembangan kisahnya', followTitle: 'Bab berikutnya\nsedang terbentuk.', followBody: 'Ikuti World of Tethys untuk film, kabar buku, dan perjalanan menuju Fault Lines.',
     playLabel: '00 / Masuk ke dunia',
     playTitle: 'Pilih jalur Tethys Anda.',
-    playIntro: 'Dua pengalaman Roblox. Satu semesta bersama. Mulai dari titik yang cocok untuk pemain, lalu tumbuh bersama dunianya.',
+    playIntro: 'Dua pengalaman Roblox. Satu semesta bersama. Adventures jadi pintu masuk lembut untuk semua umur; Wildbound adalah jalur remaja yang digate dengan sistem survival lebih berat.',
     experiences: [
       ['Adventures', 'Semua umur · eksplorasi yang fun', 'Fokus rilis publik pertama: The Lost Crossing. Pintu masuk ramah keluarga dengan mekanik lebih ringan, ritme penemuan cerah, dan onboarding yang playful di wilayah inti.', 'Masuk Adventures', 'roblox-experiences/The Lost Crossing_ Tethys Adventures-1.png', 'Live sekarang: The Lost Crossing'],
-      ['Wildbound', 'Usia 13+ · sistem survival lebih dalam', 'Untuk remaja lebih tua dan dewasa: loop ekologi lebih berat, tekanan predator lebih tinggi, dan progresi berlapis berbasis adaptasi lingkungan.', 'Masuk Wildbound', 'roblox-experiences/Wildbound_Camp_Thumb.png', 'Tahap berikutnya'],
+      ['Wildbound', 'Jalur usia 13+ (gated) · sistem survival lebih dalam', 'Untuk remaja lebih tua dan dewasa: loop ekologi lebih berat, tekanan predator lebih tinggi, dan progresi berlapis berbasis adaptasi lingkungan. Jalur ini ditandai jelas sebagai pengalaman remaja.', 'Masuk Wildbound 13+', 'roblox-experiences/Wildbound_Camp_Thumb.png', 'Track gated 13+'],
     ],
     bridgeHeading: 'Didukung pendekatan full-stack',
     bridgeItems: [

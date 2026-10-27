@@ -9,14 +9,16 @@ const MAP_CONFIG = {
   adventures: {
     path: '/map',
     storagePrefix: 'tethys-discovery-adventures',
-    mapImage: '/A_FebImg-Tethys/wideearth-map.jpg',
-    legendImage: '/roblox-experiences/Adventures_pin_set.PNG',
-    cinematicImage: '/roblox-experiences/The Lost Crossing_ Tethys Adventures-1.png',
+    mapImage: '/roblox-experiences/adventures-design-pack4.png',
+    legendImage: '/roblox-experiences/adventures-pin-set-full.png',
+    cinematicImage: '/roblox-experiences/adventures-icon2.png',
     pinKinds: [
-      { id: 'discover', icon: '⭐' },
-      { id: 'camp', icon: '🔥' },
-      { id: 'warning', icon: '⚠️' },
-      { id: 'creature', icon: '🦎' },
+      { id: 'location', icon: '📍', markerImage: '/roblox-experiences/adv-pin-location.png' },
+      { id: 'warning', icon: '⚠️', markerImage: '/roblox-experiences/adv-pin-warning.png' },
+      { id: 'discovery', icon: '⭐', markerImage: '/roblox-experiences/adv-pin-star.png' },
+      { id: 'buddy', icon: '🐾', markerImage: '/roblox-experiences/adv-pin-paw.png' },
+      { id: 'nature', icon: '🌿', markerImage: '/roblox-experiences/adv-pin-leaf.png' },
+      { id: 'water', icon: '🐟', markerImage: '/roblox-experiences/adv-pin-fish.png' },
     ],
     unlocks: [
       { count: 3, key: 'sky' },
@@ -24,7 +26,13 @@ const MAP_CONFIG = {
       { count: 10, key: 'siluria' },
       { count: 14, key: 'gargantua' },
     ],
-    gallery: [],
+    gallery: [
+      '/roblox-experiences/adventures-icon-typography.png',
+      '/roblox-experiences/adventures-roblox-design-pack.png',
+      '/roblox-experiences/adventures-design-pack4.png',
+      '/roblox-experiences/Adventures_Thumbnail_A1.png',
+      '/roblox-experiences/The Lost Crossing_ Tethys Adventures-1.png',
+    ],
   },
   wildbound: {
     path: '/map/wildbound',
@@ -76,7 +84,7 @@ function copyFor(locale, experience) {
       wildboundMap: 'Buka peta Wildbound',
       adventures: 'Masuk Adventures',
       wildbound: 'Masuk Wildbound',
-      tip: 'Tip: zona gelap menandakan wilayah yang belum ditemukan.',
+      tip: wildbound ? 'Tip: jalur gelap menandakan wilayah yang belum kamu petakan.' : 'Tip: gunakan pin warna-warni untuk membuka area baru di peta petualangan.',
       pinLabel: 'Nama pin',
       pinLabelPlaceholder: 'Contoh: Sky City Gate',
       pinType: 'Tipe pin',
@@ -95,7 +103,10 @@ function copyFor(locale, experience) {
         archyda: 'Archyda recon lanes',
         watcherVolcano: 'Watcher Volcano danger net',
       },
-      iconographyTitle: 'Wildbound iconography pack',
+      iconographyTitle: wildbound ? 'Paket ikonografi Wildbound' : 'Paket visual Adventures',
+      strykerNote: 'Stryker adalah hibrida pterosaur: dua kaki belakang dengan sayap membran terbentang, tanpa lengan depan tambahan.',
+      experienceMood: wildbound ? 'Mode survival remaja 13+' : 'Mode petualangan semua umur',
+      ageGateNote: wildbound ? 'Jalur Wildbound ditujukan untuk pemain 13+ dengan sistem lebih berat.' : 'Jalur Adventures dibuat lebih lembut, playful, dan ramah keluarga.',
     };
   }
   return {
@@ -114,7 +125,7 @@ function copyFor(locale, experience) {
     wildboundMap: 'Open Wildbound map',
     adventures: 'Enter Adventures',
     wildbound: 'Enter Wildbound',
-    tip: 'Tip: darker zones represent places not yet discovered.',
+    tip: wildbound ? 'Tip: darker corridors represent unmapped threat zones.' : 'Tip: use colorful pins to reveal more of your adventure map.',
     pinLabel: 'Pin label',
     pinLabelPlaceholder: 'Example: Sky City Gate',
     pinType: 'Pin type',
@@ -133,7 +144,10 @@ function copyFor(locale, experience) {
       archyda: 'Archyda recon lanes',
       watcherVolcano: 'Watcher Volcano danger net',
     },
-    iconographyTitle: 'Wildbound iconography pack',
+    iconographyTitle: wildbound ? 'Wildbound iconography pack' : 'Adventures style pack',
+    strykerNote: 'Stryker is a pterosaur hybrid: two hind limbs and stretched membrane wings, with no extra front limbs.',
+    experienceMood: wildbound ? 'Teen 13+ survival mode' : 'All-ages adventure mode',
+    ageGateNote: wildbound ? 'Wildbound is a gated 13+ path with heavier survival pressure.' : 'Adventures is intentionally soft, playful, and family-friendly.',
   };
 }
 
@@ -237,14 +251,16 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
     }
   }
 
+  const mapSectionClass = `${styles.section} ${styles.discoveryMapSection} ${experience === 'adventures' ? styles.discoveryMapSectionAdventures : styles.discoveryMapSectionWildbound}`;
   return <CampaignShell locale={locale} site="author" path={config.path}>
     <section className={`${styles.section} ${styles.discoveryIntro}`}>
       <p className={styles.eyebrow}>{t.eyebrow}</p>
       <h1 className={styles.sectionTitle}>{t.title}</h1>
       <p>{t.intro}</p>
+      <p className={styles.muted}>{t.experienceMood} · {t.ageGateNote}</p>
     </section>
 
-    <section className={`${styles.section} ${styles.discoveryMapSection}`}>
+    <section className={mapSectionClass}>
       <div className={styles.discoveryModeSwitch}>
         <a className={experience === 'adventures' ? styles.activeMode : ''} href={localPath(locale, '/map')}>{t.adventuresMap}</a>
         <a className={experience === 'wildbound' ? styles.activeMode : ''} href={localPath(locale, '/map/wildbound')}>{t.wildboundMap}</a>
@@ -277,13 +293,13 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
               {pins.map((pin, i) => <circle key={`${pin.x}-${pin.y}-${i}`} cx={pin.x} cy={pin.y} r={radius} fill="black" />)}
             </mask>
           </defs>
-          <rect width="100" height="100" fill="rgba(6,8,12,0.86)" mask={`url(#${maskId})`} />
+          <rect width="100" height="100" fill={experience === 'wildbound' ? 'rgba(6,8,12,0.86)' : 'rgba(16,22,20,0.62)'} mask={`url(#${maskId})`} />
         </svg>}
 
         {pins.map((pin, i) => {
           const pinKind = config.pinKinds.find((kind) => kind.id === pin.kind) || config.pinKinds[0];
-          return <span key={`${pin.x}-${pin.y}-${i}`} className={`${styles.discoveryPin} ${experience === 'wildbound' ? styles.discoveryPinWildbound : ''}`} style={{ left: `${pin.x}%`, top: `${pin.y}%` }} title={pin.label}>
-            {experience === 'wildbound' && pinKind.markerImage
+          return <span key={`${pin.x}-${pin.y}-${i}`} className={`${styles.discoveryPin} ${experience === 'wildbound' ? styles.discoveryPinWildbound : styles.discoveryPinAdventures}`} style={{ left: `${pin.x}%`, top: `${pin.y}%` }} title={pin.label}>
+            {pinKind.markerImage
               ? <img src={pinKind.markerImage} alt={`${pin.kind} marker`} className={styles.discoveryPinImage} />
               : pinKind.icon}
           </span>;
@@ -318,12 +334,13 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
       </div>
 
       <img src={config.legendImage} alt={`${experience} pin icon set reference`} className={styles.discoveryLegend} />
-      {experience === 'wildbound' && <div className={styles.discoveryAssetStack}>
+      <div className={styles.discoveryAssetStack}>
         <p className={styles.eyebrow}>{t.iconographyTitle}</p>
         <div className={styles.discoveryAssetGrid}>
-          {config.gallery.map((asset) => <img key={asset} src={asset} alt="Wildbound UI iconography board" />)}
+          {config.gallery.map((asset) => <img key={asset} src={asset} alt={`${experience} UI iconography board`} />)}
         </div>
-      </div>}
+      </div>
+      <p className={styles.discoveryStryker}>{t.strykerNote}</p>
       <p className={styles.helpNote}>{t.tip}</p>
 
       <div className={styles.pipelineActions}>

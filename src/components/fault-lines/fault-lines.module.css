@@ -84,40 +84,59 @@
 .pipelineTrack h3{font:30px var(--display),serif;margin:10px 0}
 .discoveryIntro p:not(.eyebrow){max-width:820px}
 .discoveryMapSection{padding-top:40px}
+.discoveryMapSectionAdventures{border:1px solid #7cb98947;background:linear-gradient(180deg,#141d1a,#1f3025);border-radius:18px;padding:28px 22px}
+.discoveryMapSectionWildbound{border:1px solid #7f6a4a45;background:#0f1419}
 .discoveryModeSwitch{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
 .discoveryModeSwitch a{border:1px solid #7c675050;background:#11161c;color:#bdb5a7;padding:8px 12px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
 .activeMode{border-color:#d2b189 !important;color:#f2dcc0 !important;background:#1a1f26 !important}
+.discoveryMapSectionAdventures .discoveryModeSwitch a{background:#223226;border-color:#8cbc9585;color:#deefd8;font-weight:600;letter-spacing:.06em}
+.discoveryMapSectionAdventures .activeMode{border-color:#f4dd8b !important;background:#3f6a45 !important;color:#fff8d3 !important}
 .discoveryToolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px;font-size:12px;letter-spacing:.04em}
 .discoveryToolbar strong{color:#f0dcc0}
 .discoveryToolbar>div{display:flex;gap:10px;flex-wrap:wrap}
 .discoveryToolbar button{border:1px solid #7c675050;background:#12161c;color:#c6bdaf;padding:8px 12px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .discoveryToolbar button:disabled{opacity:.45;cursor:not-allowed}
+.discoveryMapSectionAdventures .discoveryToolbar button{border-color:#9fcb8b8a;background:#2d4c36;color:#f0ffe7;font-weight:600;font-size:11px;text-transform:none}
 .discoveryConfig{display:grid;grid-template-columns:1fr 220px;gap:14px;margin-bottom:16px}
 .discoveryConfig label{display:flex;flex-direction:column;gap:7px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9e998f}
 .discoveryConfig input,.discoveryConfig select{border:1px solid #7d66514f;background:#0f141a;color:#d5cbbe;padding:10px 12px}
+.discoveryMapSectionAdventures .discoveryConfig label{color:#d6ebd5;text-transform:none;font-size:12px}
+.discoveryMapSectionAdventures .discoveryConfig input,.discoveryMapSectionAdventures .discoveryConfig select{border-color:#8fbc9770;background:#ecf5e8;color:#284238;border-radius:10px}
 .discoveryMapFrame{position:relative;aspect-ratio:16/9;border:1px solid #aa825840;overflow:hidden;cursor:crosshair;box-shadow:0 18px 46px rgba(0,0,0,.45)}
 .discoveryMapFrameWildbound{aspect-ratio:21/9}
 .discoveryMapImage{position:absolute;inset:0;background-image:url('/A_FebImg-Tethys/wideearth-map.jpg');background-size:cover;background-position:center}
 .discoveryFog{position:absolute;inset:0;width:100%;height:100%}
 .discoveryPin{position:absolute;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#f2d5b5;border:1px solid #352113;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 0 0 4px #f1c89e2a}
 .discoveryPinWildbound{min-width:0;width:auto;height:auto;padding:0;border:none;background:transparent;box-shadow:none}
+.discoveryPinAdventures{min-width:0;width:auto;height:auto;padding:0;border:none;background:transparent;box-shadow:none}
 .discoveryPinImage{width:22px;height:29px;object-fit:cover;display:block;image-rendering:auto;filter:drop-shadow(0 2px 2px rgba(0,0,0,.55))}
+.discoveryMapSectionAdventures .discoveryPinImage{width:20px;height:27px;filter:drop-shadow(0 2px 2px rgba(22,51,36,.4))}
 .discoveryPreview{margin-top:16px}
 .discoveryPreview img{width:100%;border:1px solid #81664b47;display:block}
+.discoveryMapSectionAdventures .discoveryPreview img{border-color:#8db09c70;border-radius:12px}
 .discoveryUnlocks{margin-top:18px;border:1px solid #84684736;padding:14px 16px;background:#10151b}
 .discoveryUnlocks ul{margin:8px 0 0;padding:0;list-style:none}
 .discoveryUnlocks li{display:flex;gap:9px;margin:0 0 8px;font-size:12px}
 .unlockOpen{color:#d9c8ad}
 .unlockLocked{color:#716c64}
+.discoveryMapSectionAdventures .discoveryUnlocks{border-color:#85ad8f73;background:#15251c}
+.discoveryMapSectionAdventures .unlockOpen{color:#dff9d1}
+.discoveryMapSectionAdventures .unlockLocked{color:#91a290}
 .discoveryShare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
 .discoveryShare label{display:flex;flex-direction:column;gap:7px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9e998f}
 .discoveryShare textarea{min-height:86px;border:1px solid #7d66514f;background:#0f141a;color:#d5cbbe;padding:10px 12px}
 .discoveryShare>div{display:grid;grid-template-rows:auto 1fr auto;gap:10px}
 .discoveryShare button{border:1px solid #7c675050;background:#12161c;color:#d8cfbf;padding:9px 11px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;justify-self:start}
+.discoveryMapSectionAdventures .discoveryShare label{color:#d6ebd5;text-transform:none;font-size:12px;letter-spacing:.02em}
+.discoveryMapSectionAdventures .discoveryShare textarea{border-color:#8fbc9770;background:#ecf5e8;color:#284238;border-radius:10px}
+.discoveryMapSectionAdventures .discoveryShare button{border-color:#9fcb8b8a;background:#2d4c36;color:#f0ffe7;font-weight:600;font-size:11px;text-transform:none}
 .discoveryLegend{width:100%;margin-top:18px;border:1px solid #81664b47;display:block}
 .discoveryAssetStack{margin-top:18px}
 .discoveryAssetGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .discoveryAssetGrid img{width:100%;border:1px solid #6f594031;display:block}
+.discoveryMapSectionAdventures .discoveryLegend,.discoveryMapSectionAdventures .discoveryAssetGrid img{border-color:#8db09c70;border-radius:12px}
+.discoveryStryker{margin:16px 0 6px;color:#d7d0c2;font-size:13px;line-height:1.6}
+.discoveryMapSectionAdventures .discoveryStryker{color:#e7f7dd}
 
 @media (max-width: 1000px){
   .experienceGrid{grid-template-columns:1fr}
