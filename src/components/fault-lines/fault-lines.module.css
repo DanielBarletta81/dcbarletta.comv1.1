@@ -60,8 +60,17 @@
 .regionCopy .textLink{margin-top:15px}
 .heroWithImage{background-size:cover;background-position:center 42%;background-repeat:no-repeat}
 .observatory{background-size:cover;background-position:center}
+.experienceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:26px}
+.experienceCard{padding:28px}
+.experienceCard h3{font:36px var(--display),serif;margin:10px 0 14px}
+.experienceCard p:not(.eyebrow){font-size:13.5px;margin-bottom:20px}
+.bridgeNote{border:1px solid var(--line);padding:24px 26px;background:linear-gradient(160deg,rgba(18,26,34,.72),rgba(11,13,18,.94))}
+.bridgeNote h3{font:30px var(--display),serif;margin:12px 0 14px}
+.bridgeNote ul{margin:0;padding-left:18px;color:#b9b3a8}
+.bridgeNote li{margin:0 0 9px}
 
 @media (max-width: 1000px){
+  .experienceGrid{grid-template-columns:1fr}
   .regionGrid{grid-template-columns:1fr}
   .regionCard{min-height:0}
   .regionImage{min-height:240px}

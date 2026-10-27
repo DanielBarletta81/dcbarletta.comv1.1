@@ -1,6 +1,6 @@
 import CampaignShell, { Arrow } from './CampaignShell';
 import Volcano from './Volcano';
-import { AUTHOR_URL, WORLD_URL, copy, defaultImagery, localPath, officialSources } from './content';
+import { AUTHOR_URL, EXPERIENCE_URLS, WORLD_URL, copy, defaultImagery, localPath, officialSources } from './content';
 import styles from './fault-lines.module.css';
 
 export function BookSection({ locale = 'en', site = 'world', standalone = false }) {
@@ -59,6 +59,33 @@ function RegionsSection({ locale }) {
   </section>;
 }
 
+function PlayPathsSection({ locale }) {
+  const c = copy[locale];
+  const links = [EXPERIENCE_URLS.wildbound, EXPERIENCE_URLS.adventures];
+  return <section id="play-paths" className={styles.section}>
+    <div className={styles.sectionHeading}>
+      <div>
+        <p className={styles.eyebrow}>{c.playLabel}</p>
+        <h2 className={styles.sectionTitle}>{c.playTitle}</h2>
+      </div>
+      <p>{c.playIntro}</p>
+    </div>
+    <div className={styles.experienceGrid}>
+      {c.experiences.map(([title, subtitle, body, action], index) => <article key={title} className={`${styles.experienceCard} ${styles.revealCard}`}>
+        <p className={styles.eyebrow}>{subtitle}</p>
+        <h3>{title}</h3>
+        <p>{body}</p>
+        <a href={links[index]} className={styles.primaryButton} target="_blank" rel="noopener noreferrer">{action} <Arrow /></a>
+      </article>)}
+    </div>
+    <aside className={styles.bridgeNote}>
+      <p className={styles.eyebrow}>{locale === 'id' ? 'Website + Roblox' : 'Website + Roblox'}</p>
+      <h3>{c.bridgeHeading}</h3>
+      <ul>{c.bridgeItems.map((item) => <li key={item}>{item}</li>)}</ul>
+    </aside>
+  </section>;
+}
+
 function EarthSection({ locale, site }) {
   const c = copy[locale];
   return <section className={`${styles.section} ${styles.earth}`} id="earth">
@@ -96,6 +123,7 @@ export default function Campaign({ locale = 'en', site = 'world' }) {
     {author && <section id="author" className={`${styles.section} ${styles.authorNote}`}>
       <p className={styles.eyebrow}>{c.authorLabel}</p><div><h2 className={styles.sectionTitle}>{c.authorIntro}</h2><p>{c.authorBio}</p><a href={localPath(locale, '/portfolio')} className={styles.textLink}>{c.portfolio} <Arrow /></a></div>
     </section>}
+    {!author && <PlayPathsSection locale={locale} />}
     <BookSection locale={locale} site={site} />
     {!author && <RegionsSection locale={locale} />}
     {!author && <section id="explore" className={styles.section}>

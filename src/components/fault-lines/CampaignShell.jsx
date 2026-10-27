@@ -36,7 +36,7 @@ export default function CampaignShell({ children, locale = 'en', site = 'world',
       </a>
       <nav className={styles.nav} aria-label={c.menu}>
         <a href={author ? localPath(locale, '/books') : `${localPath(locale)}#book`}>{c.book}</a>
-        <a href={author ? worldHome : `${localPath(locale)}#regions`}>{c.world}</a>
+        <a href={author ? worldHome : `${localPath(locale)}#play-paths`}>{c.world}</a>
         <a href={author ? localPath(locale, '/contact') : `${AUTHOR_URL}${localPath(locale)}`}>{author ? c.contact : c.author}</a>
       </nav>
       <div className={styles.languages} aria-label="Language / Bahasa">

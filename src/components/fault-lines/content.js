@@ -1,6 +1,10 @@
 export const WORLD_URL = 'https://worldoftethys.com';
 export const AUTHOR_URL = 'https://dcbarletta.com';
 export const EMAIL = 'hello@dcbarletta.com';
+export const EXPERIENCE_URLS = {
+  wildbound: 'https://www.roblox.com/games/',
+  adventures: 'https://www.roblox.com/games/',
+};
 
 export const officialSources = {
   volcano: 'https://magma.esdm.go.id/v1/gunung-api/tingkat-aktivitas',
@@ -55,6 +59,19 @@ export const copy = {
     volcanoAction: 'Official volcanic activity',
     visit: 'In the Sunda Strait area?', visitBody: 'Find official volcanic reports, tsunami information, and local emergency resources.',
     followLabel: 'Stay close to the story', followTitle: 'The next chapter\nis taking shape.', followBody: 'Follow World of Tethys for films, book news, and the road to Fault Lines.',
+    playLabel: '00 / Enter the world',
+    playTitle: 'Choose your Tethys path.',
+    playIntro: 'Two Roblox experiences. One shared universe. Start where your player is now, then grow with the world.',
+    experiences: [
+      ['Wildbound', 'Ages 13+ · deeper survival systems', 'For older kids and adults: harder ecology loops, stronger predator pressure, and layered progression rooted in environmental adaptation.', 'Launch Wildbound'],
+      ['Adventures', 'All ages · cute exploration', 'A family-friendly entry point with lighter mechanics, bright discovery beats, and playful onboarding through the same world regions.', 'Launch Adventures'],
+    ],
+    bridgeHeading: 'Built with full-stack support',
+    bridgeItems: [
+      'Season updates and changelogs published from the website.',
+      'Region pages that link directly to matching in-game experiences.',
+      'Player-safe progression messaging for 13+ and all-ages audiences.',
+    ],
     footer: 'An imagined world. A living earth.', family: 'For younger adventurers', archiveNote: 'English-language archive', copyright: 'D.C. Barletta. All rights reserved.',
     authorLabel: 'Author / Builder / Engineer', authorIntro: 'I build systems in code, test them in physical reality, and push them to their breaking points in speculative fiction.',
     authorBio: 'D.C. Barletta is a biologist, full-stack software engineer, worldbuilder, and author. His work spans React/Node systems, Roblox and Blender world prototyping, and hands-on construction disciplines that inform resilient storytelling.',
@@ -107,6 +124,19 @@ export const copy = {
     volcanoAction: 'Informasi resmi aktivitas gunung api',
     visit: 'Berada di kawasan Selat Sunda?', visitBody: 'Temukan laporan resmi gunung api, informasi tsunami, dan sumber bantuan darurat setempat.',
     followLabel: 'Ikuti perkembangan kisahnya', followTitle: 'Bab berikutnya\nsedang terbentuk.', followBody: 'Ikuti World of Tethys untuk film, kabar buku, dan perjalanan menuju Fault Lines.',
+    playLabel: '00 / Masuk ke dunia',
+    playTitle: 'Pilih jalur Tethys Anda.',
+    playIntro: 'Dua pengalaman Roblox. Satu semesta bersama. Mulai dari titik yang cocok untuk pemain, lalu tumbuh bersama dunianya.',
+    experiences: [
+      ['Wildbound', 'Usia 13+ · sistem survival lebih dalam', 'Untuk remaja lebih tua dan dewasa: loop ekologi lebih berat, tekanan predator lebih tinggi, dan progresi berlapis berbasis adaptasi lingkungan.', 'Masuk Wildbound'],
+      ['Adventures', 'Semua umur · eksplorasi yang fun', 'Pintu masuk ramah keluarga dengan mekanik lebih ringan, ritme penemuan cerah, dan onboarding yang playful di wilayah dunia yang sama.', 'Masuk Adventures'],
+    ],
+    bridgeHeading: 'Didukung pendekatan full-stack',
+    bridgeItems: [
+      'Pembaruan musim dan changelog dipublikasikan dari website.',
+      'Halaman wilayah yang terhubung langsung ke pengalaman in-game terkait.',
+      'Pesan progresi yang aman untuk audiens 13+ dan semua umur.',
+    ],
     footer: 'Dunia imajiner. Bumi yang hidup.', family: 'Untuk petualang cilik', archiveNote: 'Arsip berbahasa Inggris', copyright: 'D.C. Barletta. Hak cipta dilindungi.',
     authorLabel: 'Penulis / Pembuat / Insinyur', authorIntro: 'Saya membangun sistem dalam kode, mengujinya di dunia nyata, lalu mendorongnya sampai batas dalam fiksi spekulatif.',
     authorBio: 'D.C. Barletta adalah biolog, insinyur perangkat lunak full-stack, pembangun dunia, dan penulis. Karyanya mencakup sistem React/Node, prototipe dunia Roblox dan Blender, serta keterampilan konstruksi langsung yang membentuk cerita yang tahan uji.',
