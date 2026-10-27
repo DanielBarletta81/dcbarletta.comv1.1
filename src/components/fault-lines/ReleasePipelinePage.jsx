@@ -1,5 +1,5 @@
 import CampaignShell, { Arrow } from './CampaignShell';
-import { EXPERIENCE_URLS, copy } from './content';
+import { EXPERIENCE_URLS, copy, localPath } from './content';
 import releaseData from '../../data/releases/lost-crossing.json';
 import styles from './fault-lines.module.css';
 
@@ -17,7 +17,7 @@ export default function ReleasePipelinePage({ locale = 'en' }) {
         <p>{c.releaseIntro}</p>
         <div className={styles.pipelineActions}>
           <a className={styles.primaryButton} href={EXPERIENCE_URLS.adventures} target="_blank" rel="noopener noreferrer">{c.releaseLaunch} <Arrow /></a>
-          <a className={styles.quietButton} href={EXPERIENCE_URLS.wildbound} target="_blank" rel="noopener noreferrer">{c.releaseWildbound} <Arrow /></a>
+          <a className={styles.quietButton} href={localPath(locale, '/releases/wildbound')}>{c.releaseWildbound} <Arrow /></a>
         </div>
       </div>
     </section>

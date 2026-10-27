@@ -1,0 +1,106 @@
+{
+  "en": {
+    "title": "Wildbound",
+    "subtitle": "13+ deep-systems track · development pipeline",
+    "intro": "Wildbound is the work-intensive branch of World of Tethys. This pipeline tracks systems progression while Adventures continues public-facing release cadence.",
+    "milestones": [
+      {
+        "phase": "Now",
+        "detail": "Core route + camp loop validation and system hardening."
+      },
+      {
+        "phase": "Next",
+        "detail": "Predator pressure balancing, progression pacing, and biome hazard tuning."
+      },
+      {
+        "phase": "Later",
+        "detail": "Expanded world arcs, advanced survival mechanics, and deeper ecological simulation."
+      }
+    ],
+    "patches": [
+      {
+        "version": "v0.1.0 · Foundation",
+        "note": "Initial internal baseline for route/camp learning loops and content framework."
+      },
+      {
+        "version": "v0.1.1 · Systems pass",
+        "note": "Iteration on economy pressure, traversal readability, and encounter rhythm."
+      }
+    ],
+    "checklist": [
+      "Stabilize progression and survival loops before wider release.",
+      "Define age-appropriate messaging boundaries between Adventures and Wildbound.",
+      "Publish web-facing updates only for validated playable increments.",
+      "Track retention and completion telemetry for each content slice."
+    ],
+    "nextModules": [
+      {
+        "title": "Camp growth systems",
+        "text": "Expand camp utility, progression decisions, and world-state consequences."
+      },
+      {
+        "title": "Biome pressure layers",
+        "text": "Increase ecological complexity with region-specific hazard and predator signatures."
+      },
+      {
+        "title": "Narrative convergence",
+        "text": "Align Wildbound’s deep systems with broader World of Tethys narrative arcs."
+      }
+    ],
+    "playCta": "Play Wildbound",
+    "backCta": "Back to Lost Crossing pipeline",
+    "image": "roblox-experiences/Wildbound_Camp_Thumb.png"
+  },
+  "id": {
+    "title": "Wildbound",
+    "subtitle": "Jalur sistem mendalam 13+ · pipeline pengembangan",
+    "intro": "Wildbound adalah cabang World of Tethys yang paling intensif. Pipeline ini melacak progres sistem sambil Adventures melanjutkan ritme rilis publik.",
+    "milestones": [
+      {
+        "phase": "Sekarang",
+        "detail": "Validasi rute inti + loop camp serta penguatan sistem."
+      },
+      {
+        "phase": "Berikutnya",
+        "detail": "Penyeimbangan tekanan predator, pacing progresi, dan tuning hazard biome."
+      },
+      {
+        "phase": "Nanti",
+        "detail": "Ekspansi arc dunia, mekanik survival lanjutan, dan simulasi ekologi lebih dalam."
+      }
+    ],
+    "patches": [
+      {
+        "version": "v0.1.0 · Fondasi",
+        "note": "Baseline internal awal untuk loop pembelajaran rute/camp dan kerangka konten."
+      },
+      {
+        "version": "v0.1.1 · Systems pass",
+        "note": "Iterasi tekanan ekonomi, keterbacaan traversal, dan ritme encounter."
+      }
+    ],
+    "checklist": [
+      "Stabilkan progresi dan loop survival sebelum rilis lebih luas.",
+      "Tentukan batas pesan yang sesuai umur antara Adventures dan Wildbound.",
+      "Publikasikan update website hanya untuk increment yang sudah tervalidasi dimainkan.",
+      "Pantau telemetry retensi dan completion untuk tiap irisan konten."
+    ],
+    "nextModules": [
+      {
+        "title": "Sistem pertumbuhan camp",
+        "text": "Perluas utilitas camp, keputusan progresi, dan konsekuensi state dunia."
+      },
+      {
+        "title": "Lapisan tekanan biome",
+        "text": "Tingkatkan kompleksitas ekologi dengan signature hazard dan predator per wilayah."
+      },
+      {
+        "title": "Konvergensi naratif",
+        "text": "Selaraskan sistem mendalam Wildbound dengan arc naratif World of Tethys yang lebih luas."
+      }
+    ],
+    "playCta": "Mainkan Wildbound",
+    "backCta": "Kembali ke pipeline Lost Crossing",
+    "image": "roblox-experiences/Wildbound_Camp_Thumb.png"
+  }
+}

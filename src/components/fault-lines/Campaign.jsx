@@ -1,6 +1,6 @@
 import CampaignShell, { Arrow } from './CampaignShell';
 import Volcano from './Volcano';
-import { AUTHOR_URL, EXPERIENCE_URLS, WORLD_URL, copy, defaultImagery, localPath, officialSources } from './content';
+import { AUTHOR_URL, WORLD_URL, copy, defaultImagery, localPath, officialSources } from './content';
 import styles from './fault-lines.module.css';
 
 export function BookSection({ locale = 'en', site = 'world', standalone = false }) {
@@ -78,10 +78,8 @@ function PlayPathsSection({ locale }) {
         <h3>{title}</h3>
         <p>{body}</p>
         <a
-          href={title === 'Adventures' ? localPath(locale, '/releases/lost-crossing') : EXPERIENCE_URLS.wildbound}
+          href={title === 'Adventures' ? localPath(locale, '/releases/lost-crossing') : localPath(locale, '/releases/wildbound')}
           className={styles.primaryButton}
-          target={title === 'Adventures' ? undefined : '_blank'}
-          rel={title === 'Adventures' ? undefined : 'noopener noreferrer'}
         >
           {action} <Arrow />
         </a>
