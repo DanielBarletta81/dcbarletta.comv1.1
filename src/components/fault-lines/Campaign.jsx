@@ -77,7 +77,14 @@ function PlayPathsSection({ locale }) {
         <p className={styles.eyebrow}>{subtitle}</p>
         <h3>{title}</h3>
         <p>{body}</p>
-        <a href={title === 'Adventures' ? EXPERIENCE_URLS.adventures : EXPERIENCE_URLS.wildbound} className={styles.primaryButton} target="_blank" rel="noopener noreferrer">{action} <Arrow /></a>
+        <a
+          href={title === 'Adventures' ? localPath(locale, '/releases/lost-crossing') : EXPERIENCE_URLS.wildbound}
+          className={styles.primaryButton}
+          target={title === 'Adventures' ? undefined : '_blank'}
+          rel={title === 'Adventures' ? undefined : 'noopener noreferrer'}
+        >
+          {action} <Arrow />
+        </a>
       </article>)}
     </div>
     <aside className={styles.bridgeNote}>
