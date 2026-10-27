@@ -1,9 +1,11 @@
 import CampaignShell, { Arrow } from './CampaignShell';
 import { EXPERIENCE_URLS, copy } from './content';
+import releaseData from '../../data/releases/lost-crossing.json';
 import styles from './fault-lines.module.css';
 
 export default function ReleasePipelinePage({ locale = 'en' }) {
   const c = copy[locale];
+  const data = releaseData[locale] || releaseData.en;
   return <CampaignShell locale={locale} site="author" path="/releases/lost-crossing">
     <section className={`${styles.section} ${styles.pipelineHero}`}>
       <div className={styles.pipelineImage} style={{ backgroundImage: 'linear-gradient(180deg, rgba(6, 10, 16, 0.12), rgba(6, 10, 16, 0.72)), url(/roblox-experiences/The Lost Crossing_ Tethys Adventures-1.png)' }}>
@@ -30,16 +32,16 @@ export default function ReleasePipelinePage({ locale = 'en' }) {
     <section className={`${styles.section} ${styles.pipelineColumns}`}>
       <article className={`${styles.revealCard} ${styles.pipelineBlock}`}>
         <p className={styles.eyebrow}>{c.releasePatchLabel}</p>
-        <ul>{c.releasePatches.map(([version, note]) => <li key={version}><strong>{version}</strong><span>{note}</span></li>)}</ul>
+        <ul>{data.patches.map(({ version, note }) => <li key={version}><strong>{version}</strong><span>{note}</span></li>)}</ul>
       </article>
       <article className={`${styles.revealCard} ${styles.pipelineBlock}`}>
         <p className={styles.eyebrow}>{c.releaseChecklistLabel}</p>
-        <ul>{c.releaseChecklist.map(([item]) => <li key={item}>{item}</li>)}</ul>
+        <ul>{data.checklist.map((item) => <li key={item}>{item}</li>)}</ul>
       </article>
     </section>
 
     <section className={`${styles.section} ${styles.pipelineTrack}`}>
-      {c.releaseNextModules.map(([title, text], i) => <article key={title} className={styles.revealCard}>
+      {data.nextModules.map(({ title, text }, i) => <article key={title} className={styles.revealCard}>
         <p className={styles.eyebrow}>0{i + 1} / {c.releaseNextLabel}</p>
         <h3>{title}</h3>
         <p>{text}</p>

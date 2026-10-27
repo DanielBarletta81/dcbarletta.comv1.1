@@ -1,0 +1,74 @@
+{
+  "en": {
+    "patches": [
+      {
+        "version": "v0.1.0 · Launch",
+        "note": "The Lost Crossing goes public with first-route traversal and onboarding flow."
+      },
+      {
+        "version": "v0.1.1 · Stability",
+        "note": "Checkpoint reliability, respawn consistency, and route readability pass."
+      },
+      {
+        "version": "v0.2.0 · City perimeter",
+        "note": "Adventures expands with surrounding paths, visual landmarks, and exploration loops."
+      }
+    ],
+    "checklist": [
+      "Publish Roblox experience and verify private/public visibility.",
+      "Update website release card + hero art + launch CTA.",
+      "Post changelog entry and social announcement links.",
+      "Review completion rates and iterate the first obstacle route."
+    ],
+    "nextModules": [
+      {
+        "title": "Sky approach routes",
+        "text": "Add branching traversal lanes into city outskirts and safer loopbacks for all-ages replayability."
+      },
+      {
+        "title": "Waterfall district",
+        "text": "Introduce environmental storytelling nodes around ruins, bridges, and ecology markers."
+      },
+      {
+        "title": "Companion expansion",
+        "text": "Extend creature companion interactions to guide players through new zones."
+      }
+    ]
+  },
+  "id": {
+    "patches": [
+      {
+        "version": "v0.1.0 · Rilis",
+        "note": "The Lost Crossing rilis publik dengan rute awal dan alur onboarding."
+      },
+      {
+        "version": "v0.1.1 · Stabilitas",
+        "note": "Peningkatan checkpoint, konsistensi respawn, dan keterbacaan rute."
+      },
+      {
+        "version": "v0.2.0 · Perimeter kota",
+        "note": "Adventures meluas ke rute sekitar kota, landmark visual, dan loop eksplorasi."
+      }
+    ],
+    "checklist": [
+      "Publikasikan pengalaman Roblox dan verifikasi visibilitas private/public.",
+      "Perbarui kartu rilis website + art hero + CTA peluncuran.",
+      "Posting changelog dan tautan pengumuman media sosial.",
+      "Tinjau completion rate dan iterasikan rute obstacle pertama."
+    ],
+    "nextModules": [
+      {
+        "title": "Rute pendekatan Sky",
+        "text": "Tambahkan jalur traversal bercabang menuju pinggiran kota dan loop balik aman untuk replayability semua umur."
+      },
+      {
+        "title": "Distrik air terjun",
+        "text": "Tambahkan node storytelling lingkungan di sekitar reruntuhan, jembatan, dan penanda ekologi."
+      },
+      {
+        "title": "Ekspansi companion",
+        "text": "Perluas interaksi companion creature untuk memandu pemain ke zona baru."
+      }
+    ]
+  }
+}
