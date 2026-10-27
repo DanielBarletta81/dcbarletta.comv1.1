@@ -33,12 +33,12 @@ const MAP_CONFIG = {
     legendImage: '/roblox-experiences/wildbound-map-pins.png',
     cinematicImage: '/roblox-experiences/wildbound-canon-gui1.png',
     pinKinds: [
-      { id: 'location', icon: '⌂' },
-      { id: 'camp', icon: '⚑' },
-      { id: 'resource', icon: '◈' },
-      { id: 'creature', icon: '◉' },
-      { id: 'danger', icon: '▲' },
-      { id: 'quest', icon: '!' },
+      { id: 'location', icon: '⌂', markerImage: '/roblox-experiences/wb-pin-location.png' },
+      { id: 'camp', icon: '⚑', markerImage: '/roblox-experiences/wb-pin-camp.png' },
+      { id: 'resource', icon: '◈', markerImage: '/roblox-experiences/wb-pin-resource.png' },
+      { id: 'creature', icon: '◉', markerImage: '/roblox-experiences/wb-pin-creature.png' },
+      { id: 'danger', icon: '▲', markerImage: '/roblox-experiences/wb-pin-danger.png' },
+      { id: 'quest', icon: '!', markerImage: '/roblox-experiences/wb-pin-quest.png' },
     ],
     unlocks: [
       { count: 4, key: 'weep' },
@@ -282,7 +282,11 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
 
         {pins.map((pin, i) => {
           const pinKind = config.pinKinds.find((kind) => kind.id === pin.kind) || config.pinKinds[0];
-          return <span key={`${pin.x}-${pin.y}-${i}`} className={`${styles.discoveryPin} ${experience === 'wildbound' ? styles.discoveryPinWildbound : ''}`} style={{ left: `${pin.x}%`, top: `${pin.y}%` }} title={pin.label}>{pinKind.icon}</span>;
+          return <span key={`${pin.x}-${pin.y}-${i}`} className={`${styles.discoveryPin} ${experience === 'wildbound' ? styles.discoveryPinWildbound : ''}`} style={{ left: `${pin.x}%`, top: `${pin.y}%` }} title={pin.label}>
+            {experience === 'wildbound' && pinKind.markerImage
+              ? <img src={pinKind.markerImage} alt={`${pin.kind} marker`} className={styles.discoveryPinImage} />
+              : pinKind.icon}
+          </span>;
         })}
       </div>
 
