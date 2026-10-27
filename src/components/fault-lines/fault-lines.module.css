@@ -89,10 +89,24 @@
 .discoveryToolbar>div{display:flex;gap:10px;flex-wrap:wrap}
 .discoveryToolbar button{border:1px solid #7c675050;background:#12161c;color:#c6bdaf;padding:8px 12px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .discoveryToolbar button:disabled{opacity:.45;cursor:not-allowed}
+.discoveryConfig{display:grid;grid-template-columns:1fr 220px;gap:14px;margin-bottom:16px}
+.discoveryConfig label{display:flex;flex-direction:column;gap:7px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9e998f}
+.discoveryConfig input,.discoveryConfig select{border:1px solid #7d66514f;background:#0f141a;color:#d5cbbe;padding:10px 12px}
 .discoveryMapFrame{position:relative;aspect-ratio:16/9;border:1px solid #aa825840;overflow:hidden;cursor:crosshair;box-shadow:0 18px 46px rgba(0,0,0,.45)}
 .discoveryMapImage{position:absolute;inset:0;background-image:url('/A_FebImg-Tethys/wideearth-map.jpg');background-size:cover;background-position:center}
 .discoveryFog{position:absolute;inset:0;width:100%;height:100%}
-.discoveryPin{position:absolute;width:12px;height:12px;border-radius:50%;background:#f2d5b5;border:1px solid #352113;transform:translate(-50%,-50%);box-shadow:0 0 0 4px #f1c89e2a}
+.discoveryPin{position:absolute;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#f2d5b5;border:1px solid #352113;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 0 0 4px #f1c89e2a}
+.discoveryUnlocks{margin-top:18px;border:1px solid #84684736;padding:14px 16px;background:#10151b}
+.discoveryUnlocks ul{margin:8px 0 0;padding:0;list-style:none}
+.discoveryUnlocks li{display:flex;gap:9px;margin:0 0 8px;font-size:12px}
+.unlockOpen{color:#d9c8ad}
+.unlockLocked{color:#716c64}
+.discoveryShare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.discoveryShare label{display:flex;flex-direction:column;gap:7px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9e998f}
+.discoveryShare textarea{min-height:86px;border:1px solid #7d66514f;background:#0f141a;color:#d5cbbe;padding:10px 12px}
+.discoveryShare>div{display:grid;grid-template-rows:auto 1fr auto;gap:10px}
+.discoveryShare button{border:1px solid #7c675050;background:#12161c;color:#d8cfbf;padding:9px 11px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;justify-self:start}
+.discoveryLegend{width:100%;margin-top:18px;border:1px solid #81664b47;display:block}
 
 @media (max-width: 1000px){
   .experienceGrid{grid-template-columns:1fr}
@@ -101,6 +115,8 @@
   .pipelineImage{min-height:280px}
   .pipelineColumns{grid-template-columns:1fr}
   .pipelineTrack{grid-template-columns:1fr}
+  .discoveryConfig{grid-template-columns:1fr}
+  .discoveryShare{grid-template-columns:1fr}
   .discoveryToolbar{flex-direction:column;align-items:flex-start}
   .regionGrid{grid-template-columns:1fr}
   .regionCard{min-height:0}
