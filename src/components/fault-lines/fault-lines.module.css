@@ -62,6 +62,8 @@
 .observatory{background-size:cover;background-position:center}
 .experienceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:26px}
 .experienceCard{padding:28px}
+.experienceImage{height:230px;margin:-28px -28px 18px;background-size:cover;background-position:center;position:relative}
+.experienceStatus{position:absolute;left:14px;top:14px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;background:#091018de;border:1px solid #c89b6f75;color:#f2dec4}
 .experienceCard h3{font:36px var(--display),serif;margin:10px 0 14px}
 .experienceCard p:not(.eyebrow){font-size:13.5px;margin-bottom:20px}
 .bridgeNote{border:1px solid var(--line);padding:24px 26px;background:linear-gradient(160deg,rgba(18,26,34,.72),rgba(11,13,18,.94))}
@@ -71,6 +73,7 @@
 
 @media (max-width: 1000px){
   .experienceGrid{grid-template-columns:1fr}
+  .experienceImage{height:220px}
   .regionGrid{grid-template-columns:1fr}
   .regionCard{min-height:0}
   .regionImage{min-height:240px}

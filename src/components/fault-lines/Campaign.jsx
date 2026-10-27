@@ -61,7 +61,6 @@ function RegionsSection({ locale }) {
 
 function PlayPathsSection({ locale }) {
   const c = copy[locale];
-  const links = [EXPERIENCE_URLS.wildbound, EXPERIENCE_URLS.adventures];
   return <section id="play-paths" className={styles.section}>
     <div className={styles.sectionHeading}>
       <div>
@@ -71,11 +70,14 @@ function PlayPathsSection({ locale }) {
       <p>{c.playIntro}</p>
     </div>
     <div className={styles.experienceGrid}>
-      {c.experiences.map(([title, subtitle, body, action], index) => <article key={title} className={`${styles.experienceCard} ${styles.revealCard}`}>
+      {c.experiences.map(([title, subtitle, body, action, image, status]) => <article key={title} className={`${styles.experienceCard} ${styles.revealCard}`}>
+        <div className={styles.experienceImage} style={{ backgroundImage: `linear-gradient(180deg, rgba(8, 11, 16, 0.08), rgba(8, 11, 16, 0.76)), url(/${image})` }}>
+          <span className={styles.experienceStatus}>{status}</span>
+        </div>
         <p className={styles.eyebrow}>{subtitle}</p>
         <h3>{title}</h3>
         <p>{body}</p>
-        <a href={links[index]} className={styles.primaryButton} target="_blank" rel="noopener noreferrer">{action} <Arrow /></a>
+        <a href={title === 'Adventures' ? EXPERIENCE_URLS.adventures : EXPERIENCE_URLS.wildbound} className={styles.primaryButton} target="_blank" rel="noopener noreferrer">{action} <Arrow /></a>
       </article>)}
     </div>
     <aside className={styles.bridgeNote}>

@@ -2,8 +2,8 @@ export const WORLD_URL = 'https://worldoftethys.com';
 export const AUTHOR_URL = 'https://dcbarletta.com';
 export const EMAIL = 'hello@dcbarletta.com';
 export const EXPERIENCE_URLS = {
-  wildbound: 'https://www.roblox.com/games/',
-  adventures: 'https://www.roblox.com/games/',
+  wildbound: 'https://www.roblox.com/games/72645647440721/World-of-Tethys-Wildbound-Eco-Survival',
+  adventures: 'https://www.roblox.com/games/80338857828848/World-Of-Tethys-Adventures',
 };
 
 export const officialSources = {
@@ -63,8 +63,8 @@ export const copy = {
     playTitle: 'Choose your Tethys path.',
     playIntro: 'Two Roblox experiences. One shared universe. Start where your player is now, then grow with the world.',
     experiences: [
-      ['Wildbound', 'Ages 13+ · deeper survival systems', 'For older kids and adults: harder ecology loops, stronger predator pressure, and layered progression rooted in environmental adaptation.', 'Launch Wildbound'],
-      ['Adventures', 'All ages · cute exploration', 'A family-friendly entry point with lighter mechanics, bright discovery beats, and playful onboarding through the same world regions.', 'Launch Adventures'],
+      ['Adventures', 'All ages · cute exploration', 'First public release focus: The Lost Crossing. A family-friendly entry point with lighter mechanics, bright discovery beats, and playful onboarding through core regions.', 'Launch Adventures', 'roblox-experiences/The Lost Crossing_ Tethys Adventures-1.png', 'Now live: The Lost Crossing'],
+      ['Wildbound', 'Ages 13+ · deeper survival systems', 'For older kids and adults: harder ecology loops, stronger predator pressure, and layered progression rooted in environmental adaptation.', 'Launch Wildbound', 'roblox-experiences/Wildbound_Camp_Thumb.png', 'Coming next'],
     ],
     bridgeHeading: 'Built with full-stack support',
     bridgeItems: [
@@ -128,8 +128,8 @@ export const copy = {
     playTitle: 'Pilih jalur Tethys Anda.',
     playIntro: 'Dua pengalaman Roblox. Satu semesta bersama. Mulai dari titik yang cocok untuk pemain, lalu tumbuh bersama dunianya.',
     experiences: [
-      ['Wildbound', 'Usia 13+ · sistem survival lebih dalam', 'Untuk remaja lebih tua dan dewasa: loop ekologi lebih berat, tekanan predator lebih tinggi, dan progresi berlapis berbasis adaptasi lingkungan.', 'Masuk Wildbound'],
-      ['Adventures', 'Semua umur · eksplorasi yang fun', 'Pintu masuk ramah keluarga dengan mekanik lebih ringan, ritme penemuan cerah, dan onboarding yang playful di wilayah dunia yang sama.', 'Masuk Adventures'],
+      ['Adventures', 'Semua umur · eksplorasi yang fun', 'Fokus rilis publik pertama: The Lost Crossing. Pintu masuk ramah keluarga dengan mekanik lebih ringan, ritme penemuan cerah, dan onboarding yang playful di wilayah inti.', 'Masuk Adventures', 'roblox-experiences/The Lost Crossing_ Tethys Adventures-1.png', 'Live sekarang: The Lost Crossing'],
+      ['Wildbound', 'Usia 13+ · sistem survival lebih dalam', 'Untuk remaja lebih tua dan dewasa: loop ekologi lebih berat, tekanan predator lebih tinggi, dan progresi berlapis berbasis adaptasi lingkungan.', 'Masuk Wildbound', 'roblox-experiences/Wildbound_Camp_Thumb.png', 'Tahap berikutnya'],
     ],
     bridgeHeading: 'Didukung pendekatan full-stack',
     bridgeItems: [
