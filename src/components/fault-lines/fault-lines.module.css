@@ -100,8 +100,8 @@
 .discoveryMapImage{position:absolute;inset:0;background-image:url('/A_FebImg-Tethys/wideearth-map.jpg');background-size:cover;background-position:center}
 .discoveryFog{position:absolute;inset:0;width:100%;height:100%}
 .discoveryPin{position:absolute;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#f2d5b5;border:1px solid #352113;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 0 0 4px #f1c89e2a}
-.discoveryPinWildbound{background:#12171d;color:#f2cf9d;border-color:#7a5a39;box-shadow:0 0 0 4px #c4873d30}
-.discoveryPinImage{width:24px;height:30px;object-fit:cover;border-radius:4px;display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
+.discoveryPinWildbound{min-width:0;width:auto;height:auto;padding:0;border:none;background:transparent;box-shadow:none}
+.discoveryPinImage{width:22px;height:29px;object-fit:cover;display:block;image-rendering:auto;filter:drop-shadow(0 2px 2px rgba(0,0,0,.55))}
 .discoveryPreview{margin-top:16px}
 .discoveryPreview img{width:100%;border:1px solid #81664b47;display:block}
 .discoveryUnlocks{margin-top:18px;border:1px solid #84684736;padding:14px 16px;background:#10151b}
