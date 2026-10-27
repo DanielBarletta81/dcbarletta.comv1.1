@@ -75,12 +75,20 @@
 .pipelineActions{display:flex;flex-wrap:wrap;gap:20px;margin-top:26px}
 .pipelineTrack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .pipelineTrack article{padding:24px}
+.pipelineColumns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pipelineBlock{padding:24px}
+.pipelineBlock ul{margin:0;padding-left:18px}
+.pipelineBlock li{margin:0 0 12px;color:#bfb8ab;line-height:1.7}
+.pipelineBlock li strong{display:block;color:#f1dcc0;font-weight:500;letter-spacing:.04em}
+.pipelineBlock li span{display:block}
+.pipelineTrack h3{font:30px var(--display),serif;margin:10px 0}
 
 @media (max-width: 1000px){
   .experienceGrid{grid-template-columns:1fr}
   .experienceImage{height:220px}
   .pipelineHero{grid-template-columns:1fr}
   .pipelineImage{min-height:280px}
+  .pipelineColumns{grid-template-columns:1fr}
   .pipelineTrack{grid-template-columns:1fr}
   .regionGrid{grid-template-columns:1fr}
   .regionCard{min-height:0}

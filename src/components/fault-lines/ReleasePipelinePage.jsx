@@ -26,5 +26,24 @@ export default function ReleasePipelinePage({ locale = 'en' }) {
         <p>{detail}</p>
       </article>)}
     </section>
+
+    <section className={`${styles.section} ${styles.pipelineColumns}`}>
+      <article className={`${styles.revealCard} ${styles.pipelineBlock}`}>
+        <p className={styles.eyebrow}>{c.releasePatchLabel}</p>
+        <ul>{c.releasePatches.map(([version, note]) => <li key={version}><strong>{version}</strong><span>{note}</span></li>)}</ul>
+      </article>
+      <article className={`${styles.revealCard} ${styles.pipelineBlock}`}>
+        <p className={styles.eyebrow}>{c.releaseChecklistLabel}</p>
+        <ul>{c.releaseChecklist.map(([item]) => <li key={item}>{item}</li>)}</ul>
+      </article>
+    </section>
+
+    <section className={`${styles.section} ${styles.pipelineTrack}`}>
+      {c.releaseNextModules.map(([title, text], i) => <article key={title} className={styles.revealCard}>
+        <p className={styles.eyebrow}>0{i + 1} / {c.releaseNextLabel}</p>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </article>)}
+    </section>
   </CampaignShell>;
 }
