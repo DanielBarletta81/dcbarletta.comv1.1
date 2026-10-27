@@ -137,6 +137,20 @@
 .discoveryMapSectionAdventures .discoveryLegend,.discoveryMapSectionAdventures .discoveryAssetGrid img{border-color:#8db09c70;border-radius:12px}
 .discoveryStryker{margin:16px 0 6px;color:#d7d0c2;font-size:13px;line-height:1.6}
 .discoveryMapSectionAdventures .discoveryStryker{color:#e7f7dd}
+.discoveryKidAtlas{margin-top:22px}
+.discoveryKidColumns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.discoveryKidCard{border:1px solid #8db09c70;border-radius:14px;background:#223a2a;padding:16px}
+.discoveryKidCard ul{list-style:none;margin:10px 0 0;padding:0}
+.discoveryKidCard li{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start;padding:10px 0;border-bottom:1px dashed #7fa88766}
+.discoveryKidCard li:last-child{border-bottom:none}
+.discoveryKidCard strong{display:block;color:#f0ffe6}
+.discoveryKidCard span{display:block;color:#cee1cb;font-size:12px;margin-top:3px}
+.discoveryKidCard button{border:1px solid #9fcb8b8a;background:#2d4c36;color:#f0ffe7;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:600}
+.discoveryKidBadges{margin-top:14px;border:1px solid #8db09c70;border-radius:14px;background:#1f3225;padding:16px}
+.discoveryKidBadges div{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
+.discoveryKidBadges span{padding:7px 11px;border-radius:999px;font-size:11px}
+.badgeOpen{background:#f4dd8b;color:#2d3d27;font-weight:700}
+.badgeLocked{background:#314739;color:#bfd3bd}
 
 @media (max-width: 1000px){
   .experienceGrid{grid-template-columns:1fr}
@@ -149,6 +163,7 @@
   .discoveryShare{grid-template-columns:1fr}
   .discoveryToolbar{flex-direction:column;align-items:flex-start}
   .discoveryAssetGrid{grid-template-columns:1fr}
+  .discoveryKidColumns{grid-template-columns:1fr}
   .regionGrid{grid-template-columns:1fr}
   .regionCard{min-height:0}
   .regionImage{min-height:240px}

@@ -7,7 +7,7 @@ import styles from './fault-lines.module.css';
 
 const MAP_CONFIG = {
   adventures: {
-    path: '/map',
+    path: '/atlas',
     storagePrefix: 'tethys-discovery-adventures',
     mapImage: '/roblox-experiences/adventures-design-pack4.png',
     legendImage: '/roblox-experiences/adventures-pin-set-full.png',
@@ -65,6 +65,26 @@ const MAP_CONFIG = {
   },
 };
 
+const ADVENTURES_FOSSIL_SITES = [
+  { id: 'sky-spire', name: 'Sky Spire Cliffs', clue: 'Wind-carved ledges above waterfall valleys.' },
+  { id: 'weep-bed', name: 'The Weep Bedrock', clue: 'Layered stone with shallow fossil seams.' },
+  { id: 'mushroom-ridge', name: 'Mushroom Ridge', clue: 'Soft clay pockets near glowcap groves.' },
+  { id: 'rope-canyon', name: 'Rope-Bridge Canyon', clue: 'Ancient strata hidden near rope crossings.' },
+];
+
+const ADVENTURES_COLLECTIONS = [
+  { id: 'fossils', name: 'Fossils', note: 'Track rare shells, bones, and trace prints.' },
+  { id: 'plants', name: 'Plants', note: 'Catalog unique leaves and growth forms.' },
+  { id: 'creatures', name: 'Creatures', note: 'Log companion sightings and biome wildlife.' },
+];
+
+const ADVENTURES_BADGES = [
+  { id: 'first-find', name: 'First Find', need: 1 },
+  { id: 'trail-scout', name: 'Trail Scout', need: 4 },
+  { id: 'fossil-keeper', name: 'Fossil Keeper', need: 8 },
+  { id: 'atlas-guide', name: 'Atlas Guide', need: 12 },
+];
+
 function copyFor(locale, experience) {
   const wildbound = experience === 'wildbound';
   if (locale === 'id') {
@@ -107,6 +127,11 @@ function copyFor(locale, experience) {
       strykerNote: 'Stryker adalah hibrida pterosaur: dua kaki belakang dengan sayap membran terbentang, tanpa lengan depan tambahan.',
       experienceMood: wildbound ? 'Mode survival remaja 13+' : 'Mode petualangan semua umur',
       ageGateNote: wildbound ? 'Jalur Wildbound ditujukan untuk pemain 13+ dengan sistem lebih berat.' : 'Jalur Adventures dibuat lebih lembut, playful, dan ramah keluarga.',
+      fossilTitle: 'Lokasi fosil',
+      collectionTitle: 'Koleksi penemuan',
+      badgeTitle: 'Badge petualang',
+      markDone: 'Tandai selesai',
+      markUndo: 'Batalkan',
     };
   }
   return {
@@ -148,6 +173,11 @@ function copyFor(locale, experience) {
     strykerNote: 'Stryker is a pterosaur hybrid: two hind limbs and stretched membrane wings, with no extra front limbs.',
     experienceMood: wildbound ? 'Teen 13+ survival mode' : 'All-ages adventure mode',
     ageGateNote: wildbound ? 'Wildbound is a gated 13+ path with heavier survival pressure.' : 'Adventures is intentionally soft, playful, and family-friendly.',
+    fossilTitle: 'Fossil sites',
+    collectionTitle: 'Collection tracker',
+    badgeTitle: 'Adventure badges',
+    markDone: 'Mark complete',
+    markUndo: 'Undo',
   };
 }
 
@@ -175,6 +205,8 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
   const FOG_KEY = `${config.storagePrefix}-fog-v1`;
   const KIND_KEY = `${config.storagePrefix}-kind-v1`;
   const LABEL_KEY = `${config.storagePrefix}-label-v1`;
+  const FOSSIL_KEY = `${config.storagePrefix}-fossils-v1`;
+  const COLLECTION_KEY = `${config.storagePrefix}-collections-v1`;
   const [pins, setPins] = useState([]);
   const [fogEnabled, setFogEnabled] = useState(true);
   const [activeKind, setActiveKind] = useState(config.pinKinds[0].id);
@@ -182,6 +214,8 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
   const [mapCodeInput, setMapCodeInput] = useState('');
   const [mapCode, setMapCode] = useState('');
   const [copyState, setCopyState] = useState('idle');
+  const [doneFossils, setDoneFossils] = useState([]);
+  const [doneCollections, setDoneCollections] = useState([]);
 
   useEffect(() => {
     try {
@@ -193,10 +227,14 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
       if (savedKind && config.pinKinds.some((kind) => kind.id === savedKind)) setActiveKind(savedKind);
       const savedLabel = localStorage.getItem(LABEL_KEY);
       if (savedLabel) setPinLabel(savedLabel);
+      const savedFossils = JSON.parse(localStorage.getItem(FOSSIL_KEY) || '[]');
+      if (Array.isArray(savedFossils)) setDoneFossils(savedFossils);
+      const savedCollections = JSON.parse(localStorage.getItem(COLLECTION_KEY) || '[]');
+      if (Array.isArray(savedCollections)) setDoneCollections(savedCollections);
     } catch {
       setPins([]);
     }
-  }, [FOG_KEY, KIND_KEY, LABEL_KEY, STORAGE_KEY, config.pinKinds]);
+  }, [COLLECTION_KEY, FOG_KEY, FOSSIL_KEY, KIND_KEY, LABEL_KEY, STORAGE_KEY, config.pinKinds]);
 
   useEffect(() => {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(pins)); } catch {}
@@ -214,6 +252,12 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
   useEffect(() => {
     try { localStorage.setItem(LABEL_KEY, pinLabel); } catch {}
   }, [pinLabel]);
+  useEffect(() => {
+    try { localStorage.setItem(FOSSIL_KEY, JSON.stringify(doneFossils)); } catch {}
+  }, [FOSSIL_KEY, doneFossils]);
+  useEffect(() => {
+    try { localStorage.setItem(COLLECTION_KEY, JSON.stringify(doneCollections)); } catch {}
+  }, [COLLECTION_KEY, doneCollections]);
 
   const maskId = useMemo(() => `fog-mask-${Math.random().toString(36).slice(2)}`, []);
   const unlocked = config.unlocks.filter((u) => pins.length >= u.count);
@@ -248,6 +292,10 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
     if (decoded) {
       setPins(decoded);
       setMapCodeInput('');
+    }
+
+    function toggleItem(id, items, setItems) {
+      setItems((prev) => (prev.includes(id) ? prev.filter((value) => value !== id) : [...prev, id]));
     }
   }
 
@@ -351,6 +399,54 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
           {experience === 'wildbound' ? t.adventures : t.wildbound} <Arrow />
         </a>
       </div>
+
+      {experience === 'adventures' && <section className={styles.discoveryKidAtlas}>
+        <div className={styles.discoveryKidColumns}>
+          <article className={styles.discoveryKidCard}>
+            <p className={styles.eyebrow}>{t.fossilTitle}</p>
+            <ul>
+              {ADVENTURES_FOSSIL_SITES.map((site) => {
+                const done = doneFossils.includes(site.id);
+                return <li key={site.id}>
+                  <div>
+                    <strong>{site.name}</strong>
+                    <span>{site.clue}</span>
+                  </div>
+                  <button onClick={() => toggleItem(site.id, doneFossils, setDoneFossils)}>{done ? t.markUndo : t.markDone}</button>
+                </li>;
+              })}
+            </ul>
+          </article>
+
+          <article className={styles.discoveryKidCard}>
+            <p className={styles.eyebrow}>{t.collectionTitle}</p>
+            <ul>
+              {ADVENTURES_COLLECTIONS.map((item) => {
+                const done = doneCollections.includes(item.id);
+                return <li key={item.id}>
+                  <div>
+                    <strong>{item.name}</strong>
+                    <span>{item.note}</span>
+                  </div>
+                  <button onClick={() => toggleItem(item.id, doneCollections, setDoneCollections)}>{done ? t.markUndo : t.markDone}</button>
+                </li>;
+              })}
+            </ul>
+          </article>
+        </div>
+
+        <article className={styles.discoveryKidBadges}>
+          <p className={styles.eyebrow}>{t.badgeTitle}</p>
+          <div>
+            {ADVENTURES_BADGES.map((badge) => {
+              const unlockedBadge = pins.length >= badge.need;
+              return <span key={badge.id} className={unlockedBadge ? styles.badgeOpen : styles.badgeLocked}>
+                {badge.name} · {badge.need}
+              </span>;
+            })}
+          </div>
+        </article>
+      </section>}
     </section>
   </CampaignShell>;
 }

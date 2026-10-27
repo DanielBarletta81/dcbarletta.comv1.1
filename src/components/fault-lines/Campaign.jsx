@@ -57,7 +57,7 @@ function RegionsSection({ locale }) {
       </article>)}
     </div>
     <div className={styles.pipelineActions}>
-      <a href={localPath(locale, '/map')} className={styles.primaryButton}>
+      <a href={localPath(locale, '/atlas')} className={styles.primaryButton}>
         {locale === 'id' ? 'Buka peta penemuan' : 'Open discovery map'} <Arrow />
       </a>
     </div>
