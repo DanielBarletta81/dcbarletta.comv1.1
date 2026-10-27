@@ -17,6 +17,7 @@ export default function WildboundPipelinePage({ locale = 'en' }) {
         <p>{page.intro}</p>
         <div className={styles.pipelineActions}>
           <a className={styles.primaryButton} href={EXPERIENCE_URLS.wildbound} target="_blank" rel="noopener noreferrer">{page.playCta} <Arrow /></a>
+          <a className={styles.quietButton} href={localPath(locale, '/map/wildbound')}>{locale === 'id' ? 'Buka peta Wildbound' : 'Open Wildbound map'} <Arrow /></a>
           <a className={styles.quietButton} href={localPath(locale, '/releases/lost-crossing')}>{page.backCta} <Arrow /></a>
         </div>
       </div>
