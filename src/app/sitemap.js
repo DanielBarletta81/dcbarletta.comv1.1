@@ -1,0 +1,7 @@
+import { AUTHOR_URL, localPath } from '../components/fault-lines/content';
+export default function sitemap() {
+  return ['', '/books', '/portfolio', '/contact'].flatMap(path => ['en', 'id'].map(locale => ({
+    url: `${AUTHOR_URL}${localPath(locale, path)}`, changeFrequency: 'monthly', priority: path ? 0.7 : 1,
+    alternates: { languages: { en: `${AUTHOR_URL}${localPath('en', path)}`, id: `${AUTHOR_URL}${localPath('id', path)}` } },
+  })));
+}
