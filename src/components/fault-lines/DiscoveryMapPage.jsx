@@ -85,6 +85,18 @@ const ADVENTURES_BADGES = [
   { id: 'atlas-guide', name: 'Atlas Guide', need: 12 },
 ];
 
+const ADVENTURES_LEARNING_CARDS = [
+  { id: 'fossils', title: 'Fossil clue', text: 'Fossils are evidence of ancient life preserved in stone over long periods of time.' },
+  { id: 'delta', title: 'Water world clue', text: 'Deltas form where rivers slow down and leave layers of sand and mud behind.' },
+  { id: 'adapt', title: 'Survival clue', text: 'Different habitats encourage different traits, so creatures adapt to where they live.' },
+];
+
+const ADVENTURES_MEMORY_PROMPTS = [
+  { id: 'kindness', text: 'I helped my buddy explorer today.' },
+  { id: 'curiosity', text: 'I asked one new science question.' },
+  { id: 'bravery', text: 'I explored a new route and kept going.' },
+];
+
 function copyFor(locale, experience) {
   const wildbound = experience === 'wildbound';
   if (locale === 'id') {
@@ -132,6 +144,17 @@ function copyFor(locale, experience) {
       badgeTitle: 'Badge petualang',
       markDone: 'Tandai selesai',
       markUndo: 'Batalkan',
+      missionTitle: 'Misi explorer',
+      missionBody: 'Kumpulkan pin, temukan fosil, dan isi koleksi untuk membuka badge baru.',
+      learningTitle: 'Belajar sambil bermain',
+      memoryTitle: 'Kenangan petualangan',
+      addMemory: 'Tambah ke kenangan',
+      progressTitle: 'Progress hari ini',
+      pinsDone: 'pin peta',
+      fossilsDone: 'lokasi fosil',
+      collectionsDone: 'koleksi',
+      welcomeTitle: 'Selamat datang di Little Tethys Atlas',
+      welcomeBody: 'Tempat ini dibuat untuk petualang muda: aman, menyenangkan, dan penuh penemuan.',
     };
   }
   return {
@@ -178,6 +201,17 @@ function copyFor(locale, experience) {
     badgeTitle: 'Adventure badges',
     markDone: 'Mark complete',
     markUndo: 'Undo',
+    missionTitle: 'Explorer mission board',
+    missionBody: 'Place map pins, discover fossil sites, and complete collections to unlock new badges.',
+    learningTitle: 'Learn while you play',
+    memoryTitle: 'Adventure memories',
+    addMemory: 'Add to memory board',
+    progressTitle: 'Today\'s progress',
+    pinsDone: 'map pins',
+    fossilsDone: 'fossil sites',
+    collectionsDone: 'collections',
+    welcomeTitle: 'Welcome to Little Tethys Atlas',
+    welcomeBody: 'This space is built for young explorers: safe, playful, and full of discovery.',
   };
 }
 
@@ -207,6 +241,7 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
   const LABEL_KEY = `${config.storagePrefix}-label-v1`;
   const FOSSIL_KEY = `${config.storagePrefix}-fossils-v1`;
   const COLLECTION_KEY = `${config.storagePrefix}-collections-v1`;
+  const MEMORY_KEY = `${config.storagePrefix}-memory-v1`;
   const [pins, setPins] = useState([]);
   const [fogEnabled, setFogEnabled] = useState(true);
   const [activeKind, setActiveKind] = useState(config.pinKinds[0].id);
@@ -216,6 +251,7 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
   const [copyState, setCopyState] = useState('idle');
   const [doneFossils, setDoneFossils] = useState([]);
   const [doneCollections, setDoneCollections] = useState([]);
+  const [memoryBoard, setMemoryBoard] = useState([]);
 
   useEffect(() => {
     try {
@@ -231,10 +267,12 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
       if (Array.isArray(savedFossils)) setDoneFossils(savedFossils);
       const savedCollections = JSON.parse(localStorage.getItem(COLLECTION_KEY) || '[]');
       if (Array.isArray(savedCollections)) setDoneCollections(savedCollections);
+      const savedMemory = JSON.parse(localStorage.getItem(MEMORY_KEY) || '[]');
+      if (Array.isArray(savedMemory)) setMemoryBoard(savedMemory);
     } catch {
       setPins([]);
     }
-  }, [COLLECTION_KEY, FOG_KEY, FOSSIL_KEY, KIND_KEY, LABEL_KEY, STORAGE_KEY, config.pinKinds]);
+  }, [COLLECTION_KEY, FOG_KEY, FOSSIL_KEY, KIND_KEY, LABEL_KEY, MEMORY_KEY, STORAGE_KEY, config.pinKinds]);
 
   useEffect(() => {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(pins)); } catch {}
@@ -258,6 +296,9 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
   useEffect(() => {
     try { localStorage.setItem(COLLECTION_KEY, JSON.stringify(doneCollections)); } catch {}
   }, [COLLECTION_KEY, doneCollections]);
+  useEffect(() => {
+    try { localStorage.setItem(MEMORY_KEY, JSON.stringify(memoryBoard)); } catch {}
+  }, [MEMORY_KEY, memoryBoard]);
 
   const maskId = useMemo(() => `fog-mask-${Math.random().toString(36).slice(2)}`, []);
   const unlocked = config.unlocks.filter((u) => pins.length >= u.count);
@@ -293,24 +334,38 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
       setPins(decoded);
       setMapCodeInput('');
     }
+  }
 
-    function toggleItem(id, items, setItems) {
-      setItems((prev) => (prev.includes(id) ? prev.filter((value) => value !== id) : [...prev, id]));
-    }
+  function toggleItem(id, setItems) {
+    setItems((prev) => (prev.includes(id) ? prev.filter((value) => value !== id) : [...prev, id]));
+  }
+
+  function addMemory(entry) {
+    setMemoryBoard((prev) => (prev.includes(entry) ? prev : [...prev, entry]));
   }
 
   const mapSectionClass = `${styles.section} ${styles.discoveryMapSection} ${experience === 'adventures' ? styles.discoveryMapSectionAdventures : styles.discoveryMapSectionWildbound}`;
+  const progressSnapshot = {
+    pins: pins.length,
+    fossils: doneFossils.length,
+    collections: doneCollections.length,
+  };
+
   return <CampaignShell locale={locale} site="author" path={config.path}>
     <section className={`${styles.section} ${styles.discoveryIntro}`}>
       <p className={styles.eyebrow}>{t.eyebrow}</p>
       <h1 className={styles.sectionTitle}>{t.title}</h1>
       <p>{t.intro}</p>
       <p className={styles.muted}>{t.experienceMood} · {t.ageGateNote}</p>
+      {experience === 'adventures' && <div className={styles.discoveryWelcome}>
+        <h3>{t.welcomeTitle}</h3>
+        <p>{t.welcomeBody}</p>
+      </div>}
     </section>
 
     <section className={mapSectionClass}>
       <div className={styles.discoveryModeSwitch}>
-        <a className={experience === 'adventures' ? styles.activeMode : ''} href={localPath(locale, '/map')}>{t.adventuresMap}</a>
+        <a className={experience === 'adventures' ? styles.activeMode : ''} href={localPath(locale, '/atlas')}>{t.adventuresMap}</a>
         <a className={experience === 'wildbound' ? styles.activeMode : ''} href={localPath(locale, '/map/wildbound')}>{t.wildboundMap}</a>
       </div>
       <div className={styles.discoveryToolbar}>
@@ -412,7 +467,7 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
                     <strong>{site.name}</strong>
                     <span>{site.clue}</span>
                   </div>
-                  <button onClick={() => toggleItem(site.id, doneFossils, setDoneFossils)}>{done ? t.markUndo : t.markDone}</button>
+                  <button onClick={() => toggleItem(site.id, setDoneFossils)}>{done ? t.markUndo : t.markDone}</button>
                 </li>;
               })}
             </ul>
@@ -428,12 +483,23 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
                     <strong>{item.name}</strong>
                     <span>{item.note}</span>
                   </div>
-                  <button onClick={() => toggleItem(item.id, doneCollections, setDoneCollections)}>{done ? t.markUndo : t.markDone}</button>
+                  <button onClick={() => toggleItem(item.id, setDoneCollections)}>{done ? t.markUndo : t.markDone}</button>
                 </li>;
               })}
             </ul>
           </article>
         </div>
+
+        <article className={styles.discoveryKidBadges}>
+          <p className={styles.eyebrow}>{t.missionTitle}</p>
+          <p>{t.missionBody}</p>
+          <div className={styles.discoveryProgressRow}>
+            <span>{t.progressTitle}</span>
+            <strong>{progressSnapshot.pins} {t.pinsDone}</strong>
+            <strong>{progressSnapshot.fossils} {t.fossilsDone}</strong>
+            <strong>{progressSnapshot.collections} {t.collectionsDone}</strong>
+          </div>
+        </article>
 
         <article className={styles.discoveryKidBadges}>
           <p className={styles.eyebrow}>{t.badgeTitle}</p>
@@ -445,6 +511,26 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
               </span>;
             })}
           </div>
+        </article>
+
+        <article className={styles.discoveryKidBadges}>
+          <p className={styles.eyebrow}>{t.learningTitle}</p>
+          <div className={styles.discoveryLearningGrid}>
+            {ADVENTURES_LEARNING_CARDS.map((card) => <div key={card.id} className={styles.discoveryLearningCard}>
+              <strong>{card.title}</strong>
+              <p>{card.text}</p>
+            </div>)}
+          </div>
+        </article>
+
+        <article className={styles.discoveryKidBadges}>
+          <p className={styles.eyebrow}>{t.memoryTitle}</p>
+          <div className={styles.discoveryMemoryActions}>
+            {ADVENTURES_MEMORY_PROMPTS.map((prompt) => <button key={prompt.id} onClick={() => addMemory(prompt.text)}>{t.addMemory}</button>)}
+          </div>
+          <ul className={styles.discoveryMemoryBoard}>
+            {memoryBoard.length ? memoryBoard.map((entry) => <li key={entry}>{entry}</li>) : <li>{locale === 'id' ? 'Belum ada kenangan. Tambahkan momen pertama!' : 'No memories yet. Add your first explorer moment!'}</li>}
+          </ul>
         </article>
       </section>}
     </section>

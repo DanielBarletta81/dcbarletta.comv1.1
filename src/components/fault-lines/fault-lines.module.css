@@ -137,6 +137,9 @@
 .discoveryMapSectionAdventures .discoveryLegend,.discoveryMapSectionAdventures .discoveryAssetGrid img{border-color:#8db09c70;border-radius:12px}
 .discoveryStryker{margin:16px 0 6px;color:#d7d0c2;font-size:13px;line-height:1.6}
 .discoveryMapSectionAdventures .discoveryStryker{color:#e7f7dd}
+.discoveryWelcome{margin-top:16px;border:1px solid #8db09c70;border-radius:14px;background:#223a2a;padding:14px 16px}
+.discoveryWelcome h3{margin:0 0 8px;color:#f0ffe6;font:28px var(--display),serif}
+.discoveryWelcome p{margin:0;color:#cee1cb}
 .discoveryKidAtlas{margin-top:22px}
 .discoveryKidColumns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .discoveryKidCard{border:1px solid #8db09c70;border-radius:14px;background:#223a2a;padding:16px}
@@ -151,6 +154,17 @@
 .discoveryKidBadges span{padding:7px 11px;border-radius:999px;font-size:11px}
 .badgeOpen{background:#f4dd8b;color:#2d3d27;font-weight:700}
 .badgeLocked{background:#314739;color:#bfd3bd}
+.discoveryProgressRow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.discoveryProgressRow>span{color:#d7e9d3;font-weight:600}
+.discoveryProgressRow>strong{padding:6px 10px;border-radius:999px;background:#2e4a35;color:#effee4;font-size:11px}
+.discoveryLearningGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.discoveryLearningCard{border:1px solid #7fa88766;border-radius:12px;background:#2a3f2f;padding:12px}
+.discoveryLearningCard strong{color:#f0ffe6}
+.discoveryLearningCard p{margin:7px 0 0;color:#d4e4cf;font-size:12px;line-height:1.45}
+.discoveryMemoryActions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.discoveryMemoryActions button{border:1px solid #9fcb8b8a;background:#2d4c36;color:#f0ffe7;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:600}
+.discoveryMemoryBoard{margin:10px 0 0;padding-left:18px;color:#dff0d8}
+.discoveryMemoryBoard li{margin:0 0 6px}
 
 @media (max-width: 1000px){
   .experienceGrid{grid-template-columns:1fr}
@@ -164,6 +178,7 @@
   .discoveryToolbar{flex-direction:column;align-items:flex-start}
   .discoveryAssetGrid{grid-template-columns:1fr}
   .discoveryKidColumns{grid-template-columns:1fr}
+  .discoveryLearningGrid{grid-template-columns:1fr}
   .regionGrid{grid-template-columns:1fr}
   .regionCard{min-height:0}
   .regionImage{min-height:240px}
