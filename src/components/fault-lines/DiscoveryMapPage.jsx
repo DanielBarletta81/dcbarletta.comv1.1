@@ -389,14 +389,14 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
       <div className={`${styles.discoveryMapFrame} ${experience === 'wildbound' ? styles.discoveryMapFrameWildbound : ''}`} onClick={addPin} role="button" tabIndex={0} aria-label="Interactive discovery map">
         <div className={styles.discoveryMapImage} style={{ backgroundImage: `url(${config.mapImage})` }} />
 
-        {fogEnabled && <svg className={styles.discoveryFog} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        {fogEnabled && <svg className={styles.discoveryFog} viewBox="0 0 133.333 100" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <mask id={maskId}>
-              <rect width="100" height="100" fill="white" />
-              {pins.map((pin, i) => <circle key={`${pin.x}-${pin.y}-${i}`} cx={pin.x} cy={pin.y} r={radius} fill="black" />)}
+              <rect width="133.333" height="100" fill="white" />
+              {pins.map((pin, i) => <circle key={`${pin.x}-${pin.y}-${i}`} cx={pin.x * 1.33333} cy={pin.y} r={radius} fill="black" />)}
             </mask>
           </defs>
-          <rect width="100" height="100" fill={experience === 'wildbound' ? 'rgba(6,8,12,0.86)' : 'rgba(16,22,20,0.62)'} mask={`url(#${maskId})`} />
+          <rect width="133.333" height="100" fill={experience === 'wildbound' ? 'rgba(6,8,12,0.86)' : 'rgba(16,22,20,0.62)'} mask={`url(#${maskId})`} />
         </svg>}
 
         {pins.map((pin, i) => {
