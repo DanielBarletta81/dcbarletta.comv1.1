@@ -1,4 +1,4 @@
 import Page from '../../../components/fault-lines/AuthorPages';
 import { campaignMetadata } from '../../../components/fault-lines/content';
-export const metadata = campaignMetadata('id', 'author', '/portfolio', 'Proses kreatif — D.C. Barletta');
+export const metadata = campaignMetadata('id', 'author', '/portfolio', 'Desain & Rekayasa — D.C. Barletta');
 export default function AuthorRoute() { return <Page locale="id" page="portfolio" />; }

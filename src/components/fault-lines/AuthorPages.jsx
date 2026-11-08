@@ -1,5 +1,6 @@
 import CampaignShell, { Arrow } from './CampaignShell';
 import { BookSection, FollowSection } from './Campaign';
+import { FieldDataSection, ProjectsSection } from './FieldData';
 import { EMAIL, WORLD_URL, copy, localPath } from './content';
 import styles from './fault-lines.module.css';
 
@@ -56,6 +57,8 @@ export default function AuthorPage({ locale = 'en', page = 'books' }) {
       <section className={`${styles.section} ${styles.infoGrid}`}>
         {(page === 'contact' ? [[c.pressTitle, c.pressBody], [c.screenTitle, c.screenBody]] : c.craftItems).map(([title, text], i) => <article key={title} className={styles.revealCard}><p className={styles.eyebrow}>0{i + 1}</p><h2>{title}</h2><p>{text}</p></article>)}
       </section>
+      {page === 'portfolio' && <FieldDataSection locale={locale} />}
+      {page === 'portfolio' && <ProjectsSection locale={locale} />}
       {page === 'portfolio' && <section className={`${styles.section} ${styles.quote}`}><blockquote>{c.philosophy}</blockquote><p>D.C. Barletta</p><a href={`${WORLD_URL}${localPath(locale)}`} className={styles.textLink}>{c.explore} <Arrow /></a></section>}
     </>}
     <FollowSection locale={locale} />

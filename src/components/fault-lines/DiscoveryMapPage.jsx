@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
+import { useId, useMemo, useState, useEffect } from 'react';
 import CampaignShell, { Arrow } from './CampaignShell';
 import { EXPERIENCE_URLS, localPath } from './content';
 import styles from './fault-lines.module.css';
@@ -300,7 +300,7 @@ export default function DiscoveryMapPage({ locale = 'en', experience = 'adventur
     try { localStorage.setItem(MEMORY_KEY, JSON.stringify(memoryBoard)); } catch {}
   }, [MEMORY_KEY, memoryBoard]);
 
-  const maskId = useMemo(() => `fog-mask-${Math.random().toString(36).slice(2)}`, []);
+  const maskId = `fog-mask-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const unlocked = config.unlocks.filter((u) => pins.length >= u.count);
   const radius = experience === 'wildbound' ? 5.6 + Math.min(unlocked.length, 4) * 0.72 : 6.2 + Math.min(unlocked.length, 4) * 0.8;
 

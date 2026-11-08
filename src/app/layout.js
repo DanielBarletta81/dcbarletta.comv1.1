@@ -1,7 +1,14 @@
 import localFont from 'next/font/local';
 import './globals.css';
 const serif = localFont({ src: '../../public/fonts/spectral/spectral-400.ttf', variable: '--font-naturalist', display: 'swap' });
-const sans = localFont({ src: '../../public/fonts/space-grotesk/space-grotesk-400.ttf', variable: '--font-sky', display: 'swap' });
+const sans = localFont({
+  src: [
+    { path: '../../public/fonts/space-grotesk/space-grotesk-400.ttf', weight: '400' },
+    { path: '../../public/fonts/space-grotesk/space-grotesk-600.ttf', weight: '600' },
+  ],
+  variable: '--font-sky',
+  display: 'swap',
+});
 export const metadata = {
   metadataBase: new URL('https://dcbarletta.com'),
   title: 'D.C. Barletta | Biologist. Software Engineer. Worldbuilder.',

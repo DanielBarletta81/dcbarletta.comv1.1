@@ -1,4 +1,6 @@
+import { preload } from 'react-dom';
 import CampaignShell, { Arrow } from './CampaignShell';
+import HeroBackdrop from './HeroBackdrop';
 import Volcano from './Volcano';
 import { AUTHOR_URL, WORLD_URL, copy, defaultImagery, localPath, officialSources } from './content';
 import styles from './fault-lines.module.css';
@@ -116,8 +118,11 @@ function EarthSection({ locale, site }) {
 export default function Campaign({ locale = 'en', site = 'world' }) {
   const c = copy[locale];
   const author = site === 'author';
+  preload(`/${defaultImagery.heroImage}`, { as: 'image' });
   return <CampaignShell locale={locale} site={site}>
-    <section className={`${styles.hero} ${styles.cinematicHero} ${styles.heroWithImage} ${author ? styles.authorHero : ''}`} style={{ backgroundImage: `radial-gradient(ellipse at 50% 75%, rgba(31, 40, 54, 0.18) 0, rgba(31, 40, 54, 0.72) 48%, rgba(8, 11, 16, 0.96) 100%), url(/${defaultImagery.heroImage})` }} aria-labelledby="hero-title">
+    <section className={`${styles.hero} ${styles.cinematicHero} ${author ? styles.authorHero : ''}`} aria-labelledby="hero-title">
+      <HeroBackdrop image={defaultImagery.heroImage} />
+      <div className={styles.heroScrim} aria-hidden="true" />
       <div className={styles.heroFrame} aria-hidden="true" />
       <div className={styles.heroContent}>
         <p className={styles.eyebrow}>{author ? c.authorLabel : c.edition}</p>
